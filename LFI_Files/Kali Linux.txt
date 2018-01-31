@@ -1,0 +1,78 @@
+https://images.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.kali.org%2Fwp-content%2Fuploads%2F2015%2F02%2Fkali-wallpaper-2015-v1.1.0.png&f=1
+<*>
+Kali Linux is a Debian-derived Linux distribution designed for digital forensics and penetration testing. It is maintained and funded by Offensive Security Ltd. Mati Aharoni, Devon Kearns and Raphaël Hertzog are the core developers.
+<*>
+Kali Linux is a Debian-derived Linux distribution designed for digital forensics and penetration testing. It is maintained and funded by Offensive Security Ltd. Mati Aharoni, Devon Kearns and Raphaël Hertzog are the core developers.
+
+Contents  [hide] 
+1	Development
+2	Requirements
+3	Supported platforms
+4	Features
+5	Tools
+6	Popular culture
+7	See also
+8	References
+9	External links
+Development[edit]
+Kali Linux has over 600[2] preinstalled penetration-testing programs, including Armitage (a graphical cyber attack management tool), Nmap (a port scanner), Wireshark (a packet analyzer), John the Ripper password cracker, Aircrack-ng (a software suite for penetration-testing wireless LANs), Burp suite and OWASP ZAP web application security scanners.[3][4] Kali Linux can run natively when installed on a computer's hard disk, can be booted from a live CD or live USB, or it can run within a virtual machine. It is a supported platform of the Metasploit Project's Metasploit Framework, a tool for developing and executing security exploits.[3]
+
+It was developed by Mati Aharoni and Devon Kearns of Offensive Security through the rewrite of BackTrack, their previous information security testing Linux distribution based on Knoppix. The third core developer Raphaël Hertzog joined them as a Debian expert.[5][6]
+
+Kali Linux is based on Debian Testing. Most packages Kali uses are imported from the Debian repositories.[7]
+
+Kali Linux is developed using a secure environment with only a small number of trusted people that are allowed to commit packages, with each package being digitally signed by the developer. Kali also has a custom-built kernel that is patched for 802.11 wireless injection. This was primarily added because the development team found they needed to do a lot of wireless assessments.
+
+Requirements[edit]
+Kali Linux requires a minimum of 20GB hard disk space for installation.[8]
+A minimum of 1GB RAM for i386 and AMD64 architectures.
+A bootable CD-DVD drive or a USB stick.
+Supported platforms[edit]
+Kali Linux is distributed in 32-bit and 64-bit images for use on hosts based on the x86 instruction set and as an image for the ARM architecture for use on the Beagle Board computer and on Samsung's ARM Chromebook.[9]
+
+The developers of Kali Linux aim to make Kali Linux available for ARM devices.[6]
+
+Kali Linux is already available for BeagleBone Black, HP Chromebook, CubieBoard 2, CuBox, CuBox-i, Raspberry Pi, EfikaMX, Odroid U2, Odroid XU, Odroid XU3, Samsung Chromebook, Utilite Pro, Galaxy Note 10.1, and SS808.[10]
+
+With the arrival of Kali NetHunter, Kali Linux is also officially available on smartphones such as the Nexus 5, Nexus 6, Nexus 7, Nexus 9, Nexus 10, OnePlus One, and some Samsung Galaxy models.
+
+Features[edit]
+Kali Linux has a dedicated project set aside for compatibility and porting to specific Android devices, called Kali Linux NetHunter.[11]
+
+It is the first Open Source Android penetration testing platform for Nexus devices, created as a joint effort between the Kali community member “BinkyBear” and Offensive Security. It supports Wireless 802.11 frame injection, one-click MANA Evil Access Point setups, HID keyboard (Teensy like attacks), as well as Bad USB MITM attacks.[11]
+
+BackTrack (Kali's predecessor) contained a mode known as forensic mode, which was carried over to Kali via live boot. This mode is very popular for many reasons, partly because many Kali users already have a bootable Kali USB drive or CD, and this option makes it easy to apply Kali to a forensic job. When booted in forensic mode, the system doesn't touch the internal hard drive or swap space and auto mounting is disabled. However, the developers recommend that users test these features extensively before using Kali for real world forensics.[12]
+
+Tools[edit]
+Kali Linux includes security tools, such as:[13]
+
+Aircrack-ng
+Burp suite
+Cisco Global Exploiter, a hacking tool used to find and exploit vulnerabilities in Cisco Network systems
+Ettercap
+John the Ripper
+Kismet
+Maltego
+Metasploit framework
+Nmap
+OWASP ZAP
+Social engineering tools
+Wireshark
+Popular culture[edit]
+The logo of Kali Linux appears on the background in the TV series Mr. Robot (2015) in episode 5 of season one. The Kali Linux logo also appears again as wallpaper in scenes from episode 1, episode 9 and more prominently in the episode 6, season 2 of the same series, when it is used by two of the main characters, Angela and Darlene. The operating system is also shown to be downloaded and installed at episode 10 of season 2. It appears again on Romero's home pc, as wallpaper, through several episodes and, most recently, in season 3, episode 2, where it is employed by the series’ main protagonist, Elliot.
+
+See also[edit]
+BackBox
+BlackArch
+Debian
+OpenVAS
+Parrot Security OS
+Security-focused operating system
+dSploit
+References[edit]
+Jump up ^ "Kali Linux 2017.3 Release". kali.org. 2017-11-21. Retrieved 2017-11-21.
+Jump up ^ "Penetration Testing Tools - Kali Linux". tools.kali.org.
+^ Jump up to: a b "Kali Linux arrives as enterprise-ready version of BackTrack". The H. 2013-03-13.
+Jump up ^ "Kali Linux Metapackages". Offensive Security. Retrieved 2014-11-02.
+Jump up ^ "The Birth of Kali Linux". Offensive Security. 2012-12-12. Retrieved 2013-03-13.
+^ Jump up to: a b Orin, Andy (2014-03-12). "Behind the App: The St

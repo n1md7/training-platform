@@ -1,0 +1,16 @@
+.login_panel{
+	width: 400px;
+	margin:auto;
+	background:rgba(0,0,0,0.4);
+	overflow: hidden;
+}
+.login_panel >.panel-heading{
+	background:rgba(0,0,0,0.5);
+	color: white;
+
+}
+.login_logo_container{
+	width: 100%;
+	height: 100px;
+	text-align: center;
+}

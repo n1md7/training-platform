@@ -1,0 +1,99 @@
+https://duckduckgo.com/i/1bfbcfc2.png
+<*>
+The WannaCry ransomware attack was a May 2017 worldwide cyberattack by the WannaCry ransomware cryptoworm, which targeted computers running the Microsoft Windows operating system by encrypting data and demanding ransom payments in the Bitcoin cryptocurrency.
+
+<*>
+WannaCry ransomware attack
+From Wikipedia, the free encyclopedia
+WannaCry
+Wana Decrypt0r screenshot.png
+Screenshot of the ransom note left on an infected system
+Date	12 May 2017 – 15 May 2017
+(initial outbreak)[1]
+Duration	4 days
+Location	Worldwide
+Also known as	Transformations:
+Wanna → Wana
+Cryptor → Crypt0r
+Cryptor → Decryptor
+Cryptor → Crypt → Cry
+Addition of "2.0"
+Short names:
+Wanna → WN → W
+Cry → CRY
+Type	Cyberattack
+Theme	Ransomware encrypting files with $300 – $600 demand (via bitcoin)
+Cause	
+WannaCry worm
+Outcome	Over 200,000 victims and more than 300,000 computers infected[2][3][4]
+The WannaCry ransomware attack was a May 2017 worldwide cyberattack by the WannaCry ransomware cryptoworm, which targeted computers running the Microsoft Windows operating system by encrypting data and demanding ransom payments in the Bitcoin cryptocurrency. It propagated through EternalBlue, an exploit in older Windows systems released by The Shadow Brokers a few months prior to the attack. While Microsoft had released patches previously to close the exploit, much of WannaCry's spread was from organizations that had not applied these, or were using older Windows systems that were past their end-of-life. WannaCry also took advantage of installing backdoors onto infected systems.
+
+The attack was stopped within a few days of its discovery due to emergency patches released by Microsoft, and the discovery of a kill switch that prevented infected computers from spreading WannaCry further. The attack was estimated to have affected more than 300,000 computers across 150 countries, with total damages ranging from hundreds of millions to billions of dollars. Security experts believed from preliminary evaluation of the worm that the attack originated from North Korea or agencies working for the country.
+
+In December 2017, the United States, United Kingdom and Australia formally asserted that North Korea was behind the attack.[5]
+
+Contents  [hide] 
+1	Description
+2	Attack
+2.1	Defensive response
+3	Attribution
+4	Impact
+4.1	Affected organizations
+5	Reactions
+6	See also
+7	Notes
+8	References
+9	External links
+Description[edit]
+WannaCry is a ransomware cryptoworm, which targeted computers running the Microsoft Windows operating system by encrypting data and demanding ransom payments in the Bitcoin cryptocurrency.[a] It is considered a network worm because it also includes a "transport" mechanism to automatically spread itself. This transport code scans for vulnerable systems, then uses the EternalBlue exploit to gain access, and the DoublePulsar tool to install and execute a copy of itself.[11]
+
+EternalBlue is an exploit of Windows' Server Message Block (SMB) protocol released by The Shadow Brokers. Much of the attention and comment around the event was occasioned by the fact that the U.S. National Security Agency (NSA) had already discovered the vulnerability, but used it to create an exploit for its own offensive work, rather than report it to Microsoft.[12][13] Microsoft eventually discovered the vulnerability, and on Tuesday, March 14, 2017, they issued security bulletin MS17-010, which detailed the flaw and announced that patches had been released for all Windows versions that were currently supported at that time, these being Windows 7, Windows 8.1, Windows 10, Windows Server 2008, Windows Server 2012, and Windows Server 2016, in addition to Windows Vista (which had recently ended support).[14]
+
+DoublePulsar is a backdoor tool, also released by The Shadow Brokers on 14 April 2017. Starting from 21 April 2017, security researchers reported that computers with the DoublePulsar backdoor installed were in the tens of thousands.[15] By 25 April, reports estimated the number of infected computers to be up to several hundred thousands, with numbers increasing exponentially every day.[16][17] The WannaCry code can take advantage of any existing DoublePulsar infection, or installs it itself.[11][18][19]
+
+When executed, the WannaCry malware first checks the "kill switch" domain name;[b] if it is not found, then the ransomware encrypts the computer's data,[20][21][22] then attempts to exploit the SMB vulnerability to spread out to random computers on the Internet,[23] and "laterally" to computers on the same network.[24] As with other modern ransomware, the payload displays a message informing the user that files have been encrypted, and demands a payment of around $300 in bitcoin within three days, or $600 within seven days.[21][25] Three hardcoded bitcoin addresses, or "wallets", are used to receive the payments of victims. As with all such wallets, their transactions and balances are publicly accessible even though the cryptocurrency wallet owners remain unknown.[26]
+
+Several organizations released detailed technical writeups of the malware, including Microsoft,[27] Cisco,[11] Malwarebytes,[23] Symantec and McAfee.[24]
+
+Attack[edit]
+The attack began on Friday, 12 May 2017,[28][29] with evidence pointing to an initial infection in Asia at 7:44am UTC.[28][30] The initial infection was likely through an exposed vulnerable SMB port,[31] rather than email phishing as initially assumed.[28] Within a day the code was reported to have infected more than 230,000 computers in over 150 countries.[32][33]
+
+Organizations that had not installed Microsoft's security update from April 2017 were affected by the attack.[34] Those still running unsupported versions of Microsoft Windows, such as Windows XP and Windows Server 2003[35][36] were at particularly high risk because no security patches had been released since April 2014 (with the exception of one emergency patch released in May 2014).[6] A Kaspersky Lab study reported that less than 0.1 percent of the affected computers were running Windows XP, and that 98 percent of the affected computers were running Windows 7.[6][37] In a controlled testing environment, the cybersecurity firm Kryptos Logic found that they were unable to infect a Windows XP system with WannaCry using just the exploits, as the payload failed to load, or caused the operating system to crash rather than actually execute and encrypt files. However, when executed manually, WannaCry could still operate on Windows XP.[38][39]
+
+Defensive response[edit]
+Experts quickly advised affected users against paying the ransom due to no reports of people getting their data back after payment and as high revenues would encourage more of such campaigns.[40][41][42] As of 14 June 2017, after the attack had subsided, a total of 327 payments totaling $130,634.77 (51.62396539 XBT) had been transferred.[43]
+
+The day after the initial attack in May, Microsoft released emergency security patches for Windows 7 and Windows 8.1, as well an out-of-band security updates for end of life products Windows XP, Windows Server 2003 and Windows 8, these patches had been created in February of that year following a tip off about the vulnerability in January of that year.[44][36] Organizations were advised to patch Windows and plug the vulnerability in order to protect themselves from the cyber attack.[45] The head of Microsoft’s Cyber Defense Operations Center, Adrienne Hall, said that “Due to the elevated risk for destructive cyber-attacks at this time, we made the decision to take this action because applying these updates provides further protection against potential attacks with characteristics similar to WannaCrypt [alternative name to WannaCry]”.[46][47]
+
+Researcher Marcus Hutchins[48][49] accidentally discovered the kill switch domain hardcoded in the malware.[50][51][52] Registering a domain name for a DNS sinkhole stopped the attack spreading as a worm, because the ransomware only encrypted the computer's files if it was unable to connect to that domain, which all computers infected with WannaCry before the website's registration had been unable to do. While this did not help already infected systems, it severely slowed the spread of the initial infection and gave time for defensive measures to be deployed worldwide, particularly in North America and Asia, which had not been attacked to the same extent as elsewhere.[53][54][55][56][57] A few days later, new version of WannaCry were detected that lack the kill switch.[58][59][60][61]
+
+On 19 May, it was reported that hackers were trying to use a Mirai botnet variant to effect a distributed attack on WannaCry's kill-switch domain with the intention of knocking it offline.[62] On 22 May, @MalwareTechBlog protected the domain by switching to a cached version of the site, capable of dealing with much higher traffic loads than the live site.[63]
+
+Separately, researchers from University College London and Boston University reported that their PayBreak system could defeat WannaCry and several other families of ransomware.[64][65]
+
+It was discovered that Windows encryption APIs used by WannaCry may not completely clear the prime numbers used to generate the payload's private keys from the memory, making it possible to potentially retrieve the required key if they had not yet been overwritten or cleared from resident memory. This behaviour was used by a French researcher to develop a tool known as WannaKey, which automates this process on Windows XP systems.[66][67][68] This approach was iterated upon by a second tool known as Wanakiwi, which was tested to work on Windows 7 and Server 2008 R2 as well.[69]
+
+Within four days of the initial outbreak, new infections had slowed to a trickle due to these responses.[70]
+
+Attribution[edit]
+Linguistic analysis of the ransom notes indicated the authors were likely fluent in Chinese and proficient in English, as the versions of the notes in those languages were probably human-written while the rest seemed to be machine-translated.[71][72]
+
+Cybersecurity companies Kaspersky Lab and Symantec have both said the code has some similarities with that previously used by the Lazarus Group[73] (believed to have carried out the cyberattack on Sony Pictures in 2014 and a Bangladesh bank heist in 2016—and linked to North Korea).[73] This could also be either simple re-use of code by another group[74] or an attempt to shift blame—as in a cyber false flag operation;[73] but a leaked internal NSA memo is alleged to have also linked the creation of the worm to North Korea.[75] The President of Microsoft said he believed North Korea was the originator of the WannaCry attack,[76] and the UK's National Cyber Security Centre reached the same conclusion.[77]
+
+On December 18, 2017, the United States Government formally announced that it publicly considers North Korea to be the main culprit behind the WannaCry attack.[78] President Trump's Homeland Security Adviser, Tom Bossert, wrote an op-ed in The Wall Street Journal about this charge, saying "We do not make this allegation lightly. It is based on evidence."[79] In a press conference the following day, Bossert said that the evidence indicates that Kim Jong-un had given the order to launch the malware attack.[80] Bossert said that Canada, New Zealand and Japan agree with the United States' assessment of the evidence that links the attack to North Korea,[81] while the United Kingdom's Foreign and Commonwealth Office says it also stands behind the United States' assertion.[82]
+
+North Korea, however, denied being responsible for the cyberattack.[83][84]
+
+Impact[edit]
+
+Map of the countries initially affected[85]
+The ransomware campaign was unprecedented in scale according to Europol,[32] which estimates that around 200,000 computers were infected across 150 countries. According to Kaspersky Lab, the four most affected countries were Russia, Ukraine, India and Taiwan.[86]
+
+One of the largest agencies struck by the attack was the National Health Service hospitals in England and Scotland,[87][88] and up to 70,000 devices – including computers, MRI scanners, blood-storage refrigerators and theatre equipment – may have been affected.[89] On 12 May, some NHS services had to turn away non-critical emergencies, and some ambulances were diverted.[90][91] In 2016, thousands of computers in 42 separate NHS trusts in England were reported to be still running Windows XP.[35] NHS hospitals in Wales and Northern Ireland were unaffected by the attack.[92][90]
+
+Nissan Motor Manufacturing UK in Tyne and Wear, England, halted production after the ransomware infected some of their systems. Renault also stopped production at several sites in an attempt to stop the spread of the ransomware.[93][94] Spain's Telefónica, FedEx and Deutsche Bahn were hit, along with many other countries and companies worldwide.[95][96][97]
+
+The attack's impact is said to be relatively low compared to other potential attacks of the same type and could have been much worse had a security expert, who was independently researching the malware, not discovered that a kill-switch had been built in by its creators[98][99] or if it had been specifically targeted on highly critical infrastructure, like nuclear power plants, dams or railway systems.[100][101]
+
+According to Cyber risk modeling firm Cyence, economic losses from the cyber attack could reach up to $4 billion, with other groups estimating the losses to be in the hundreds of millions.[102]
+

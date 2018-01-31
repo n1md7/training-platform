@@ -1,0 +1,21 @@
+h1,h2,h3,h5{
+	text-align: center;
+	margin:40px auto;
+}
+
+body div.container pre{
+	 white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;
+}
+
+body div.thumbnail .loading{
+	color: black;
+}
+
+
+body img.tumb_img {
+	display: none;
+}
