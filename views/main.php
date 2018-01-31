@@ -31,8 +31,20 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li id="PATH_TRAVERSIAL_EASY"><a href="<?php echo URL_PATH_TRAVERSAL_EASY_1; ?>">Path Traversal <span class="sr-only">(current)</span></a></li>
-          <li><a href="#">RFI</a></li>
+          <li class="dropdown" id="PATH_TRAVERSIAL_EASY">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Path Traversal <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li class=""><a href="<?php echo URL_PATH_TRAVERSAL_EASY_1; ?>">Path Traversal#1 - easy</a></li>
+              <li class=""><a href="<?php echo URL_PATH_TRAVERSAL_MEDIUM_1; ?>">Path Traversal#1 - medium</a></li>
+              <li class=""><a href="<?php echo URL_PATH_TRAVERSAL_HARD_1; ?>">Path Traversal#1 - hard</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Reflected#1 - easy</a></li>
+              <li><a href="#">Reflected#2 - easy</a></li>
+              <li><a href="#">Reflected#3 - medium</a></li>
+              <li><a href="#">Reflected#4 - medium</a></li>
+            </ul>
+          </li>
+
           <li class="dropdown" id="XSS_STORED_EASY">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">XSS <span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -97,7 +109,7 @@
         </form> -->
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#" disabled="">
-            <span class="badge badge-warning">!connected</span>
+            <span class="badge badge-warning"><span class="glyphicon glyphicon-warning-sign"></span> !connected</span>
           </a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>

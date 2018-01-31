@@ -26,10 +26,10 @@ class path_traversal extends Controller{
 	/*
 		protected function for local file inclusion #1 easy level
 	*/
-	protected function easy_1(){
+	protected function vulnerabilitie(){
 		$this->restrictview();
 		$viewmodel = new pathTraversalModel();
-		$this->returnView($viewmodel->easy_1(), true);
+		$this->returnView($viewmodel->vulnerabilitie($_GET['level']), true);
 
 	}
 }

@@ -63,7 +63,7 @@ Boehringer Ingelheim actively contributes to statutory pension insurance and pri
 				endfor;
 			?>
 		</select>
-		<input type="submit" name="delete" class="btn btn-danger btn-xxl" value="Delete Last 1 Records">
+		<input type="submit" name="delete" class="btn btn-danger btn-xxl" value="Delete Last 1 Record(s)">
 	</form>
 </div>
 

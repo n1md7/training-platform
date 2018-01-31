@@ -5,14 +5,45 @@ class pathTraversalModel extends Bmodel{
 		Local File Inclusion #1 easy level
 		function is vulnerable
 	*/
-	public function easy_1(){
+	public function vulnerabilitie($level = null){
+		$headingText = '<span class="level-title level-easy">easy</span>';
+		$basic_filter = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
+		if( $level == 'medium'):
+			$substitutions = array( 
+			   '../' => '', 
+			   '..\\'  => ''
+			);
+			$get = array();
+			foreach( $basic_filter as $key => $val):
+				$get[$key] = str_replace( array_keys( $substitutions ), $substitutions, $val); 
+			endforeach;
+			$headingText = '<span class="level-title level-medium">medium</span>';
+		elseif($level == 'hard'):
+			$substitutions = array( 
+			   '../' => '', 
+			   '..\\'  => '',
+			   '.\\'  => '',
+			   './'  => '',
+			   '..'  => '',
+			   '.../'  => '',
+			);
+			$get = array();
+			foreach( $basic_filter as $key => $val):
+				$get[$key] = str_replace( array_keys( $substitutions ), $substitutions, $val); 
+			endforeach;
+			$headingText = '<span class="level-title level-hard">hard</span>';
+		else:
+			$get = $basic_filter;
+		endif;
 
-		if( isset($_GET['read']) ):
-			$readIt = file_get_contents($_GET['read']);
+
+
+		if( isset($basic_filter['read']) ):
+			$readIt = file_get_contents($get['read']);
 			if( $readIt ):
 				return $readIt;
 			endif;
-			Messages::setMsg('We can\'t open '.$_GET['read'].' file', 'error');
+			Messages::setMsg('We can\'t open '.$get['read'].' file', 'error');
 			return false;
 		endif;
 		
@@ -40,6 +71,7 @@ class pathTraversalModel extends Bmodel{
 			*/
 			'content' => $file_contents,
 			'name' => $files,
+			'level' => $headingText
 		);
 	}
 

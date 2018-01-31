@@ -1,5 +1,5 @@
 <script type="text/javascript">$("#PATH_TRAVERSIAL_EASY").addClass("active");</script>
-<link rel="stylesheet" href="<?php echo ROOT_URL.'assets/css/path_traversal/easy_1.css'; ?>">
+<link rel="stylesheet" href="<?php echo ROOT_URL.'assets/css/path_traversal/vulnerabilitie.css'; ?>">
 
 <script>
 	function imgLoading(self){
@@ -37,6 +37,8 @@ endif;
 ?>
 
 <?php if( is_array($viewmodel)): ?>
+<h1>Level: <?php echo $viewmodel['level']; ?></h1>
+
 	<h3>Free eBooks for Life!
 Discover all-new, rising authors. Independent writers offer both entertaining fiction/romance for your enjoyment and non-fiction to help you find info from self-help to biz growth.
 
@@ -61,7 +63,7 @@ For nearly 18 years now we’ve been online sharing free eBooks with MILLIONS ar
 		      <div class="caption">
 		        <h3><?php echo explode(".",$value,2)[0]; ?></h3>
 		        <p><?php echo $viewmodel['content'][$key][1]; ?></p>
-		        <p><a href="<?php echo URL_PATH_TRAVERSAL_EASY_1.'&read='.'./LFI_Files/'.$value; ?>" class="btn btn-primary" role="button">Read more</a></p>
+		        <p><a href="<?php echo $_SERVER['REQUEST_URI'].'&read='.'./LFI_Files/'.$value; ?>" class="btn btn-primary" role="button">Read more</a></p>
 		      </div>
 		    </div>
 		  </div>
