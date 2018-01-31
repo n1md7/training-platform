@@ -8,7 +8,9 @@ class pathTraversalModel extends Bmodel{
 	public function vulnerabilitie($level = null){
 		$headingText = '<span class="level-title level-easy">easy</span>';
 		$basic_filter = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
+
 		if( $level == 'medium'):
+
 			$substitutions = array( 
 			   '../' => '', 
 			   '..\\'  => ''
@@ -18,20 +20,40 @@ class pathTraversalModel extends Bmodel{
 				$get[$key] = str_replace( array_keys( $substitutions ), $substitutions, $val); 
 			endforeach;
 			$headingText = '<span class="level-title level-medium">medium</span>';
+
 		elseif($level == 'hard'):
+
 			$substitutions = array( 
 			   '../' => '', 
 			   '..\\'  => '',
 			   '.\\'  => '',
 			   './'  => '',
 			   '..'  => '',
-			   '.../'  => '',
+			   '.../'  => ''
 			);
 			$get = array();
 			foreach( $basic_filter as $key => $val):
 				$get[$key] = str_replace( array_keys( $substitutions ), $substitutions, $val); 
 			endforeach;
 			$headingText = '<span class="level-title level-hard">hard</span>';
+
+		elseif($level == 'super-hard'):
+
+			$substitutions = array( 
+			   '../'   => '', 
+			   '..\\'  => '',
+			   '.\\'   => '',
+			   './'    => '',
+			   '..'    => '',
+			   '.../'  => '',
+			   '%'     => ''
+			);
+			$get = array();
+			foreach( $basic_filter as $key => $val):
+				$get[$key] = str_replace( array_keys( $substitutions ), $substitutions, $val); 
+			endforeach;
+			$headingText = '<span class="level-title level-super-hard">super-hard</span>';
+
 		else:
 			$get = $basic_filter;
 		endif;
@@ -48,7 +70,6 @@ class pathTraversalModel extends Bmodel{
 		endif;
 		
 		
-
 
 
 		$file_contents = array();
@@ -79,3 +100,5 @@ class pathTraversalModel extends Bmodel{
 
 
 }
+
+

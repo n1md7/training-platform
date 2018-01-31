@@ -26,10 +26,10 @@ if( !is_array($viewmodel) && $viewmodel):
 		$text = $viewmodel;
 
 	printf("
-		<a href='%s'>back</a>
+		<a href='#' onclick='window.history.go(-1); return false;'>back</a>
 		<h2>Below is content of desired file</h2>
 		<pre>%s</pre>
-		", URL_PATH_TRAVERSAL_EASY_1, $text);
+		", $text);
 	// echo "<a href='".URL_PATH_TRAVERSAL_EASY_1."'>back</a>";
 	// echo "<h2>Below is content of desired file</h2>";
 	// echo "<pre>{$text}</pre>";

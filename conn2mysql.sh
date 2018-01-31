@@ -16,12 +16,16 @@ echo -e "example:\n bash conn2mysql.sh connect  root  p@ssw0rd \n"
 QUERY="
   CREATE DATABASE traning_platform;
 
-  USE traning_platform;
+  USE training_platform;
 
-  CREATE TABLE traning_platform.trp_users ( user_id INT(5) NOT NULL AUTO_INCREMENT ,
-  email VARCHAR(40) NOT NULL , password VARCHAR(40) NOT NULL , avatar TEXT NOT NULL ,
-  reg_date_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (user_id))
-  ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
+CREATE TABLE 'trp_users' (
+  'user_id' int(5) NOT NULL,
+  'email' varchar(40) NOT NULL,
+  'password' varchar(40) NOT NULL,
+  'avatar' text NOT NULL,
+  'reg_date_time' timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  'username' varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
   INSERT INTO trp_users (user_id, email, password, avatar, reg_date_time)
   VALUES (NULL, 'admin@trp.com', 'admin',
