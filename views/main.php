@@ -37,9 +37,8 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">XSS <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li class=""><a href="<?php echo URL_XSS_STORED_EASY_1; ?>">Stored#1 - easy</a></li>
-              <li><a href="#">Stored#2 - easy</a></li>
-              <li><a href="#">Stored#3 - medium</a></li>
-              <li><a href="#">Stored#4 - medium</a></li>
+              <li><a href="<?php echo URL_XSS_STORED_MEDIUM_1; ?>">Stored#1 - medium</a></li>
+              <li><a href="<?php echo URL_XSS_STORED_HARD_1; ?>">Stored#1 - hard</a></li>
               <li role="separator" class="divider"></li>
               <li><a href="#">Reflected#1 - easy</a></li>
               <li><a href="#">Reflected#2 - easy</a></li>

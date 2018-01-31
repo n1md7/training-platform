@@ -1,5 +1,6 @@
 <script type="text/javascript">$("#XSS_STORED_EASY").addClass("active");</script>
-<link rel="stylesheet" href="<?php echo ROOT_URL.'assets/css/xss/stored/easy_1.css'; ?>">
+<link rel="stylesheet" href="<?php echo ROOT_URL.'assets/css/xss/stored/1.css'; ?>">
+<h1>Level: <?php echo $viewmodel[1]; ?></h1>
 <h2>You can add/remove our company employees from this page!</h2>
 <p>
 	Our employees - our greatest asset
@@ -32,7 +33,7 @@ Boehringer Ingelheim actively contributes to statutory pension insurance and pri
     </tr>
   </thead>
   <tbody>
-   <?php foreach ($viewmodel as $key => $value): ?>
+   <?php foreach ($viewmodel[0] as $key => $value): ?>
     <tr>
       <th scope="row"><?php echo $key; ?></th>
       <td><?php echo $value['fname']; ?></td>

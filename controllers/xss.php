@@ -26,10 +26,10 @@ class xss extends Controller{
 	/*
 		protected function for stored xss #1 easy level
 	*/
-	protected function stored_easy_1(){
+	protected function stored(){
 		$this->restrictview();
 		$viewmodel = new xssModel();
-		$this->returnView($viewmodel->stored_easy_1(), true);
+		$this->returnView($viewmodel->stored($_GET['level']), true);
 
 	}
 

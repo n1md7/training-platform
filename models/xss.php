@@ -4,13 +4,31 @@ class xssModel extends Bmodel{
 		xss stored#1 easy level
 		function is vulnerable
 	*/
-	public function stored_easy_1(){
+	public function stored($level = null){
+		$headingText = '<span class="level-title level-easy">easy</span>';
+		if( $level == 'medium'):
+			$substitutions = array( 
+			   '<script>' => '', 
+			   '</script>'  => '',
+			   'script'  => ''
+			);
+			$post = array();
+			foreach( $_POST as $key => $val):
+				$post[$key] = str_replace( array_keys( $substitutions ), $substitutions, $val); 
+			endforeach;
+			$headingText = '<span class="level-title level-medium">medium</span>';
+		elseif($level == 'hard'):
+			$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+			$headingText = '<span class="level-title level-hard">hard</span>';
+		else:
+			$post = $_POST;
+		endif;
 
-		if(isset( $_POST['submit']) ):
+		if(isset( $post['submit']) ):
 			if(
-				!isset( $_POST['fname'] ) ||
-				!isset( $_POST['lname'] ) ||
-				!isset( $_POST['age'] ) 
+				!isset( $post['fname'] ) ||
+				!isset( $post['lname'] ) ||
+				!isset( $post['age'] ) 
 			):
 				Messages::setMsg('Empty fields detected', 'error');
 			else:
@@ -20,9 +38,9 @@ class xssModel extends Bmodel{
 					VALUES (:fname, :lname, :age)
 				');
 
-				$this->bind(':fname', $_POST['fname'] );
-				$this->bind(':lname', $_POST['lname'] );
-				$this->bind(':age', $_POST['age'] );
+				$this->bind(':fname', $post['fname'] );
+				$this->bind(':lname', $post['lname'] );
+				$this->bind(':age', $post['age'] );
 
 				$this->execute();
 				if( $this->lastInsertId() ):
@@ -40,14 +58,14 @@ class xssModel extends Bmodel{
 			delete records
 		*/
 		if( 
-			isset($_POST['delete']) && 
-			isset($_POST['amount'])
+			isset($post['delete']) && 
+			isset($post['amount'])
 		):
 			$this->query('DELETE FROM xss_stored ORDER BY id DESC LIMIT :lm');
-			$this->bind(':lm', (int)$_POST['amount']);
+			$this->bind(':lm', (int)$post['amount']);
 			$this->execute();
 		
-			Messages::setMsg('Yay, Deleted last '.$_POST['amount'].' record(s)');
+			Messages::setMsg('Yay, Deleted last '.$post['amount'].' record(s)');
 		endif;
 
 		/*  
@@ -55,7 +73,7 @@ class xssModel extends Bmodel{
 		*/
 		$this->query("SELECT * FROM xss_stored");
 		$this->execute();
-		return $this->resultSet();
+		return [$this->resultSet(),$headingText];
 	}
 
 

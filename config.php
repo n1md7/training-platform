@@ -25,5 +25,8 @@ define("URL_SIGNOUT",  ROOT_URL."index.php?controller=Users&action=signout");
 define("URL_SETTINGS", ROOT_URL."index.php?controller=Users&action=settings");
 define("URL_USERINFO", ROOT_URL."index.php?controller=Users&action=userinfo");
 
-define("URL_XSS_STORED_EASY_1", ROOT_URL."index.php?controller=xss&action=stored_easy_1");
+define("URL_XSS_STORED_EASY_1", ROOT_URL."index.php?controller=xss&action=stored&level=easy");
+define("URL_XSS_STORED_MEDIUM_1", ROOT_URL."index.php?controller=xss&action=stored&level=medium");
+define("URL_XSS_STORED_HARD_1", ROOT_URL."index.php?controller=xss&action=stored&level=hard");
+
 define("URL_PATH_TRAVERSAL_EASY_1", ROOT_URL."index.php?controller=path_traversal&action=easy_1");
