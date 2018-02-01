@@ -68,6 +68,20 @@ class xssModel extends Bmodel{
 			Messages::setMsg('Yay, Deleted last '.$post['amount'].' record(s)');
 		endif;
 
+		/*
+			Delete record by id
+		*/
+		if( 
+			isset($post['delete']) && 
+			isset($post['id'])
+		):
+			$this->query('DELETE FROM xss_stored WHERE id = :id');
+			$this->bind(':id', (int)$post['id']);
+			$this->execute();
+		
+			Messages::setMsg('Yay, you just deleted one record!');
+		endif;
+
 		/*  
 			return data from db
 		*/

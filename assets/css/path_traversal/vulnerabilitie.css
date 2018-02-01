@@ -44,3 +44,61 @@ body h1 span.level-super-hard{
 	color:rgba(250,0,0,0.7);
 }
 
+body div.main_container pre img{
+	margin: auto;
+}
+
+
+
+@-webkit-keyframes loadingCards {
+  from {
+		opacity: 0;
+		transform: rotateX(90deg);
+	}
+	to{
+		opacity: 1.0;
+		transform: rotateX(0deg);
+	}
+}
+@-moz-keyframes loadingCards {
+  from {
+		opacity: 0;
+		transform: rotateX(90deg);
+	}
+	to{
+		opacity: 1.0;
+		transform: rotateX(0deg);
+	}
+}
+@-o-keyframes loadingCards {
+  from {
+		opacity: 0;
+		transform: rotateX(90deg);
+	}
+	to{
+		opacity: 1.0;
+		transform: rotateX(0deg);
+	}
+}
+@keyframes loadingCards {
+  from {
+		opacity: 0;
+		transform: rotateX(90deg);
+	}
+	to{
+		opacity: 1.0;
+		transform: rotateX(0deg);
+	}
+}
+
+
+
+
+body div.row{
+	-webkit-animation: loadingCards 2s;
+	-moz-animation:    loadingCards 2s;
+	-o-animation:      loadingCards 2s;
+	animation:         loadingCards 2s;
+	/*transition: opacity,height 1.5s;*/
+}
+ 

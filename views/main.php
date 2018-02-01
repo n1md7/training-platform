@@ -1,12 +1,13 @@
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Traning Platform</title>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <link rel="stylesheet" href="<?php echo ROOT_URL.'assets/bootstrap/css/bootstrap.min.css'; ?>"> -->
+  <!-- <link rel="stylesheet" class="link" href="<?php echo ROOT_URL.'assets/bootstrap/css/bootstrap.min.css'; ?>"> -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
-	<link rel="stylesheet" href="<?php echo ROOT_URL.'assets/css/main.css'; ?>">
+	<link rel="stylesheet" class="link" href="<?php echo ROOT_URL.'assets/css/main.css'; ?>">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   
 </head>
@@ -25,7 +26,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Nimda</a>
+        <a class="navbar-brand" class="link" href="<?php echo ROOT_URL; ?>"></a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -34,10 +35,10 @@
           <li class="dropdown" id="PATH_TRAVERSIAL_EASY">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Path Traversal <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li class=""><a href="<?php echo URL_PATH_TRAVERSAL_EASY_1; ?>">Path Traversal#1 - easy</a></li>
-              <li class=""><a href="<?php echo URL_PATH_TRAVERSAL_MEDIUM_1; ?>">Path Traversal#1 - medium</a></li>
-              <li class=""><a href="<?php echo URL_PATH_TRAVERSAL_HARD_1; ?>">Path Traversal#1 - hard</a></li>
-              <li class=""><a href="<?php echo URL_PATH_TRAVERSAL_SUPERHARD_1; ?>">Path Traversal#1 - super-hard</a></li>
+              <li class=""><a class="link" href="<?php echo URL_PATH_TRAVERSAL_EASY_1; ?>">Path Traversal#1 - easy</a></li>
+              <li class=""><a class="link" href="<?php echo URL_PATH_TRAVERSAL_MEDIUM_1; ?>">Path Traversal#1 - medium</a></li>
+              <li class=""><a class="link" href="<?php echo URL_PATH_TRAVERSAL_HARD_1; ?>">Path Traversal#1 - hard</a></li>
+              <li class=""><a class="link" href="<?php echo URL_PATH_TRAVERSAL_SUPERHARD_1; ?>">Path Traversal#1 - super-hard</a></li>
               <li role="separator" class="divider"></li>
               <li><a href="#">Reflected#1 - easy</a></li>
               <li><a href="#">Reflected#2 - easy</a></li>
@@ -49,9 +50,9 @@
           <li class="dropdown" id="XSS_STORED_EASY">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">XSS <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li class=""><a href="<?php echo URL_XSS_STORED_EASY_1; ?>">Stored#1 - easy</a></li>
-              <li><a href="<?php echo URL_XSS_STORED_MEDIUM_1; ?>">Stored#1 - medium</a></li>
-              <li><a href="<?php echo URL_XSS_STORED_HARD_1; ?>">Stored#1 - hard</a></li>
+              <li class=""><a class="link" href="<?php echo URL_XSS_STORED_EASY_1; ?>">Stored#1 - easy</a></li>
+              <li><a class="link" href="<?php echo URL_XSS_STORED_MEDIUM_1; ?>">Stored#1 - medium</a></li>
+              <li><a class="link" href="<?php echo URL_XSS_STORED_HARD_1; ?>">Stored#1 - hard</a></li>
               <li role="separator" class="divider"></li>
               <li><a href="#">Reflected#1 - easy</a></li>
               <li><a href="#">Reflected#2 - easy</a></li>
@@ -78,7 +79,7 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">FI <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="3">LFI#1 - easy</a></li>
+              <li><a href="#">LFI#1 - easy</a></li>
               <li><a href="#">LFI#2 - easy</a></li>
               <li><a href="#">LFI#3 - medium</a></li>
               <li><a href="#">LFI#4 - medium</a></li>
@@ -93,7 +94,7 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Brute-force <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#">#1 - easy</a></li>
+              <li><a class="link" href="<?php echo URL_BRUTE_FORCE_EASY_1; ?>">#1 - easy</a></li>
               <li><a href="#">blah</a></li>
               <li role="separator" class="divider"></li>
               <li><a href="#">Separated link</a></li>
@@ -115,11 +116,11 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="<?php echo URL_USERINFO; ?>">My info</a></li>
-              <li><a href="<?php echo URL_SETTINGS; ?>">Settings</a></li>
-             <!--  <li><a href="<?php echo URL_SIGNUP; ?>">Sign up</a></li> -->
+              <li><a class="link" href="<?php echo URL_USERINFO; ?>">My info</a></li>
+              <li><a class="link" href="<?php echo URL_SETTINGS; ?>">Settings</a></li>
+             <!--  <li><a class="link" href="<?php echo URL_SIGNUP; ?>">Sign up</a></li> -->
               <li role="separator" class="divider"></li>
-              <li><a href="<?php echo URL_SIGNOUT; ?>">Sign out</a></li>
+              <li><a class="link" href="<?php echo URL_SIGNOUT; ?>">Sign out</a></li>
             </ul>
           </li>
         </ul>
@@ -150,5 +151,61 @@
   <!-- <script src="<?php echo ROOT_URL.'assets/js/jquery-3.2.1.min.js'; ?>"></script> -->
   <!-- <script src="<?php echo ROOT_URL.'assets/bootstrap/js/bootstrap.min.js'; ?>"></script> -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript">
+/*
+  creating Spinner before loading new page
+  image dimansions 200x200
+*/
+  function Spinner(self = this){
+    this.create = function(){
+      this.img = new Image()
+      this.img.style.setProperty('display','none')
+      this.img.src = "<?php echo ROOT_URL.'';?>/assets/img/loading.gif"
+      this.img.onload = loadImage
+      this.img.onerror = function(){
+        console.warn("ERROR: Couldn't download " + self.img.src)
+      }
+      return this
+  }
+  var loadImage = function(){
+    var doc = document, imgDim = [200, 200]
+    doc.body.style.overflow = 'hidden'
+    var style, appendStyle = '', styleImg, appendStyleImg = ''
+    self.transparentDiv = doc.createElement('div')
+    self.transparentImg = doc.createElement('img')
+    style = {
+      position : 'fixed', width : '100%', height : '100%',
+      top : 0, left : 0, 'z-index' : 99999,
+      'background-color' : 'rgba(0,0,0,0.4)'
+    }
+    styleImg = {
+      top : (window.innerHeight - imgDim[0]) / 2 + 'px',
+      left : (window.innerWidth - imgDim[1]) / 2 + 'px',
+      position : 'fixed', 'z-index' : 999999
+    }
+    for(s in style){ appendStyle += s + ':' + style[s] + ';'}
+    for(s in styleImg){ appendStyleImg += s + ':' + styleImg[s] + ';'}
+    self.transparentImg.src = self.img.src
+    self.transparentDiv.setAttribute('style', appendStyle)
+    self.transparentImg.setAttribute('style', appendStyleImg)
+    doc.body.appendChild(self.transparentDiv)
+    doc.body.appendChild(self.transparentImg)
+  }
+  this.hide = function(){
+    document.body.removeChild(this.transparentImg)
+    document.body.removeChild(this.transparentDiv)
+    document.body.style.overflow = 'auto'
+  }
+  this.show = function(){
+    this.img.setProperty('display','block')
+  }
+}
+
+
+document.querySelectorAll('li a.link').forEach(x => x.onclick = () => {var showSpinner = new Spinner().create()})
+
+
+</script>
 </body>
 </html>

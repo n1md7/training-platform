@@ -39,7 +39,12 @@ Boehringer Ingelheim actively contributes to statutory pension insurance and pri
       <td><?php echo $value['fname']; ?></td>
       <td><?php echo $value['lname']; ?></td>
       <td><?php echo $value['age']; ?></td>
-      <td>Added</td>
+      <td>
+      	<form method="post">
+      		<input type="hidden" name="id" value="<?php echo $value['id']; ?>">
+      		<input type="submit" name="delete" class="btn btn-danger delete_row" value="Delete">
+      	</form>
+      </td>
     </tr>
    <?php endforeach; ?>
     <tr>
@@ -63,13 +68,18 @@ Boehringer Ingelheim actively contributes to statutory pension insurance and pri
 				endfor;
 			?>
 		</select>
-		<input type="submit" name="delete" class="btn btn-danger btn-xxl" value="Delete Last 1 Record(s)">
+		<input type="submit" onsubmit="return false" name="delete" class="btn btn-danger btn-xxl" value="Delete Last 1 Record(s)">
 	</form>
 </div>
 
 <h5>Web-page is developed and maintained by Nimda</h5>
 
 <script>
+	document.forms.del.delete.onclick = () => {
+		if(confirm('Are you sure?')) document.forms.del.submit()
+		else return false
+	}
+
 	let toReplace = '1'
 	document.forms.del.elements.amount.onchange = () => {
 		document.forms.del.elements.delete.value = document.forms.del.
@@ -77,5 +87,21 @@ Boehringer Ingelheim actively contributes to statutory pension insurance and pri
 		replace(toReplace, document.forms.del.elements.amount.value)
 		toReplace = document.forms.del.elements.amount.value
 	}
+
+	document.querySelectorAll('.delete_row').forEach(x => x.addEventListener('mouseover',
+		function(){
+			for(let i = 0; i < this.parentNode.parentNode.parentNode.children.length; i ++){
+				this.parentNode.parentNode.parentNode.children[i].style.setProperty('text-decoration','line-through')
+				this.parentNode.parentNode.parentNode.children[i].style.setProperty('color','rgba(255,0,0,0.6)')
+			}	
+	}))
+
+	document.querySelectorAll('.delete_row').forEach(x => x.addEventListener('mouseout',
+		function(){
+			for(let i = 0; i < this.parentNode.parentNode.parentNode.children.length; i ++){
+				this.parentNode.parentNode.parentNode.children[i].style.setProperty('text-decoration','none')
+				this.parentNode.parentNode.parentNode.children[i].style.setProperty('color','rgba(255,255,255,0.9)')
+			}	
+	}))
 </script>
 

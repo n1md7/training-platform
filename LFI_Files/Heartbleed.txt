@@ -2,6 +2,7 @@ https://duckduckgo.com/i/2be63a8e.png
 <*>
 Heartbleed is a security bug in the OpenSSL cryptography library, which is a widely used implementation of the Transport Layer Security protocol. It was introduced into the software in 2012 and publicly disclosed in April 2014. Heartbleed may be exploited regardless of whether the vulnerable OpenSSL instance is running as a TLS server or client.
 <*>
+<img src="https://duckduckgo.com/i/2be63a8e.png">
 Heartbleed is a security bug in the OpenSSL cryptography library, which is a widely used implementation of the Transport Layer Security (TLS) protocol. It was introduced into the software in 2012 and publicly disclosed in April 2014. Heartbleed may be exploited regardless of whether the vulnerable OpenSSL instance is running as a TLS server or client. It results from improper input validation (due to a missing bounds check) in the implementation of the TLS heartbeat extension,[3] thus the bug's name derives from heartbeat.[4] The vulnerability is classified as a buffer over-read,[5] a situation where more data can be read than should be allowed.[6]
 
 Heartbleed is registered in the Common Vulnerabilities and Exposures database as CVE-2014-0160.[5] The federal Canadian Cyber Incident Response Centre issued a security bulletin advising system administrators about the bug.[7] A fixed version of OpenSSL was released on April 7, 2014, on the same day Heartbleed was publicly disclosed.

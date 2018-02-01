@@ -44,3 +44,19 @@
 body li a span.badge-warning{
   color:rgba(255,0,0,0.6);
 }
+
+
+.navbar-brand {
+  padding: 0px; /* firefox bug fix */
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 15px; /* firefox bug fix */
+  width: auto;
+}
+
+.navbar-brand {
+  background: url(../img/dragon_logo_1.png) center / contain no-repeat;
+  transform: rotateY(180deg);
+  width: 80px;
+}

@@ -26,7 +26,7 @@ if( !is_array($viewmodel) && $viewmodel):
 		$text = $viewmodel;
 
 	printf("
-		<a href='#' onclick='window.history.go(-1); return false;'>back</a>
+		<a href='#' onclick='window.history.go(-1); return false;'><span class='glyphicon glyphicon-chevron-left'></span>back</a>
 		<h2>Below is content of desired file</h2>
 		<pre>%s</pre>
 		", $text);
@@ -36,7 +36,7 @@ if( !is_array($viewmodel) && $viewmodel):
 endif;
 ?>
 
-<?php if( is_array($viewmodel)): ?>
+<?php if( is_array($viewmodel) ): ?>
 <h1>Level: <?php echo $viewmodel['level']; ?></h1>
 
 	<h3>Free eBooks for Life!

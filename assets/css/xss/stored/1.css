@@ -32,3 +32,8 @@ body h1 span.level-hard{
 	color:rgba(200,0,0,0.7);
 }
 
+
+table.table tbody td,
+table.table tbody th{
+	vertical-align: middle;
+}
