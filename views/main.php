@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Traning Platform</title>
+	<title>Training Platform</title>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- <link rel="stylesheet" class="link" href="<?php echo ROOT_URL.'assets/bootstrap/css/bootstrap.min.css'; ?>"> -->
