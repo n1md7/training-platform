@@ -117,4 +117,26 @@ div.progress{
 @keyframes level5{ from { width: 0; } to { width: 90%; } }
 @keyframes level6{ from { width: 0; } to { width: 100%; } }
 
+@-o-keyframes level1{ from { width: 0; } to { width: 20%; } }
+@-o-keyframes level2{ from { width: 0; } to { width: 40%; } }
+@-o-keyframes level3{ from { width: 0; } to { width: 60%; } }
+@-o-keyframes level4{ from { width: 0; } to { width: 80%; } }
+@-o-keyframes level5{ from { width: 0; } to { width: 90%; } }
+@-o-keyframes level6{ from { width: 0; } to { width: 100%; } }
+
+
+@-moz-keyframes level1{ from { width: 0; } to { width: 20%; } }
+@-moz-keyframes level2{ from { width: 0; } to { width: 40%; } }
+@-moz-keyframes level3{ from { width: 0; } to { width: 60%; } }
+@-moz-keyframes level4{ from { width: 0; } to { width: 80%; } }
+@-moz-keyframes level5{ from { width: 0; } to { width: 90%; } }
+@-moz-keyframes level6{ from { width: 0; } to { width: 100%; } }
+
+@-webkit-keyframes level1{ from { width: 0; } to { width: 20%; } }
+@-webkit-keyframes level2{ from { width: 0; } to { width: 40%; } }
+@-webkit-keyframes level3{ from { width: 0; } to { width: 60%; } }
+@-webkit-keyframes level4{ from { width: 0; } to { width: 80%; } }
+@-webkit-keyframes level5{ from { width: 0; } to { width: 90%; } }
+@-webkit-keyframes level6{ from { width: 0; } to { width: 100%; } }
+
 
