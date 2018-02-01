@@ -1,22 +1,16 @@
 <script type="text/javascript">$("#XSS_STORED_EASY").addClass("active");</script>
 <link rel="stylesheet" href="<?php echo ROOT_URL.'assets/css/xss/stored/1.css'; ?>">
 <h1>Level: <?php echo $viewmodel[1]; ?></h1>
-<h2>You can add/remove our company employees from this page!</h2>
+<h2>
+	Cross-Site Scripting (XSS) attacks are a type of injection, in which malicious scripts are injected into otherwise benign and trusted web sites. XSS attacks occur when an attacker uses a web application to send malicious code, generally in the form of a browser side script, to a different end user. Flaws that allow these attacks to succeed are quite widespread and occur anywhere a web application uses input from a user within the output it generates without validating or encoding it.
+
+An attacker can use XSS to send a malicious script to an unsuspecting user. The end user’s browser has no way to know that the script should not be trusted, and will execute the script. Because it thinks the script came from a trusted source, the malicious script can access any cookies, session tokens, or other sensitive information retained by the browser and used with that site. These scripts can even rewrite the content of the HTML page.
+	[<a target="_blank" href="https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)">OWASP <span class="glyphicon glyphicon-new-window"></span> </a>]
+</h2>
+<h3>You can add/remove our company employees from this page!</h3>
 <p>
-	Our employees - our greatest asset
-We offer our employees demanding and challenging tasks. Boehringer Ingelheim needs employees who innovate – the future of our company depends directly on its innovative capability.
+	
 
-Our employees are the guarantors of this capability and our most important corporate asset. They form the core of our corporate culture as a family-owned company that lives out its responsibility and builds on mutual respect and fairness.
-
-<br>
-Responsibility for employees
-Our company’s social responsibility has always been expressed in its core business and social benefits have always been an important part of the culture of the family-owned company Boehringer Ingelheim.​
-
-The 25th jubilee of Boehringer Ingelheim in 1910During our company’s early years, founder Albert Boehringer introduced remarkably progressive and generous social measures for his employees. The first works health insurance scheme was established in 1902. A 14-day holiday with subsidised travel, graded according to years of service, was introduced in 1910. And in 1912 a company pension scheme was added for all employees after 20 years’ service.
-
-The company pension scheme steadily expanded and now includes a company-financed pension and employee-financed, or partially employee-financed, pension.
-
-Boehringer Ingelheim actively contributes to statutory pension insurance and private provisions; its benefits support the social system. A very special corporate culture and working environment have developed on the basis of mutual respect and fairness – values constantly fostered by Boehringer Ingelheim during its 130-year history.
 
 <br>
 <hr>

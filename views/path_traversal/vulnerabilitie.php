@@ -38,19 +38,15 @@ endif;
 
 <?php if( is_array($viewmodel) ): ?>
 <h1>Level: <?php echo $viewmodel['level']; ?></h1>
+<h2>Path Traversal</h2>
+	<h3>
+		A path traversal attack (also known as directory traversal) aims to access files and directories that are stored outside the web root folder. By manipulating variables that reference files with “dot-dot-slash (../)” sequences and its variations or by using absolute file paths, it may be possible to access arbitrary files and directories stored on file system including application source code or configuration and critical system files. It should be noted that access to files is limited by system operational access control (such as in the case of locked or in-use files on the Microsoft Windows operating system).
 
-	<h3>Free eBooks for Life!
-Discover all-new, rising authors. Independent writers offer both entertaining fiction/romance for your enjoyment and non-fiction to help you find info from self-help to biz growth.
-
-
-
-</h3>
-<p>
-	Dear Readers,
-
-For nearly 18 years now we’ve been online sharing free eBooks with MILLIONS around the world. We’re a dedicated group of book lovers, like you, but have a very small team that has to sustain the huge costs of running our very popular site WITHOUT the deep pockets of the big names. This is why we are asking for a bit of help today. If we’ve brought value to you, please consider joining our V.I.P. level - you’ll enjoy UNLIMITED Book & AUDIObook downloads, formats compatible for all devices, priority support AND you’ll be helping millions worldwide with access to literature! Thank you in advance for your kindness.
-</p>
+		This attack is also known as “dot-dot-slash”, “directory traversal”, “directory climbing” and “backtracking”. 
+		source [<a target="_blank" href="https://www.owasp.org/index.php/Path_Traversal">OWASP <span class="glyphicon glyphicon-new-window"></span> </a>]
+	</h3>
 	<hr>
+ 
 
 	<?php foreach ($viewmodel['name'] as $key => $value): ?>
 		<?php if($key%3==0): ?>
