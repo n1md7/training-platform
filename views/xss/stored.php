@@ -1,6 +1,15 @@
 <script type="text/javascript">$("#XSS_STORED_EASY").addClass("active");</script>
 <link rel="stylesheet" href="<?php echo ROOT_URL.'assets/css/xss/stored/1.css'; ?>">
-<h1>Level: <?php echo $viewmodel[1]; ?></h1>
+
+<h1>Difficulty Level: <?php echo $viewmodel['level']['styled_name']; ?></h1>
+<div class="progress">
+  <div class="progress-bar <?php echo $viewmodel['level']['class']; ?> progress-bar-striped active" role="progressbar" style="width: <?php echo $viewmodel['level']['percent']; ?>%;animation:<?php echo $viewmodel['level']['css_name']; ?> 2s;">
+    <?php echo $viewmodel['level']['percent']; ?>%
+  </div>
+</div>
+
+<h2>Category: Cross-site scripting</h2>
+
 <h2>
 	Cross-Site Scripting (XSS) attacks are a type of injection, in which malicious scripts are injected into otherwise benign and trusted web sites. XSS attacks occur when an attacker uses a web application to send malicious code, generally in the form of a browser side script, to a different end user. Flaws that allow these attacks to succeed are quite widespread and occur anywhere a web application uses input from a user within the output it generates without validating or encoding it.
 
@@ -27,7 +36,7 @@ An attacker can use XSS to send a malicious script to an unsuspecting user. The 
     </tr>
   </thead>
   <tbody>
-   <?php foreach ($viewmodel[0] as $key => $value): ?>
+   <?php foreach ($viewmodel['result'] as $key => $value): ?>
     <tr>
       <th scope="row"><?php echo $key; ?></th>
       <td><?php echo $value['fname']; ?></td>

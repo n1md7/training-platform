@@ -20,29 +20,6 @@ body img.tumb_img {
 	display: none;
 }
 
-body h1 span.level-title{
-	background: rgba(255,250,221,0.6);
-	padding:0 10px;
-	border-radius: 3px;
-}
-
-body h1 span.level-easy{
-	color:rgba(0,0,0,0.7);
-}
-
-body h1 span.level-medium{
-	color:rgba(100,0,200,0.7);
-}
-
-body h1 span.level-hard{
-	color:rgba(200,0,0,0.7);
-}
-
-
-
-body h1 span.level-super-hard{
-	color:rgba(250,0,0,0.7);
-}
 
 body div.main_container pre img{
 	margin: auto;

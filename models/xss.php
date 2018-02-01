@@ -87,7 +87,9 @@ class xssModel extends Bmodel{
 		*/
 		$this->query("SELECT * FROM xss_stored");
 		$this->execute();
-		return [$this->resultSet(),$headingText];
+		return [
+			'result' => $this->resultSet(),
+			'level' => (new Progress($level))->level()];
 	}
 
 

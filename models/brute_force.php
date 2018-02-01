@@ -6,7 +6,9 @@ class bruteForceModel extends Bmodel{
 		function is vulnerable
 	*/
 	public function vulnerabilitie($level = null){
-		return 'dsadasdaskd askdjlasdjlasdjldk';
+		
+		
+		return array('level' => (new Progress($level))->level(), );
 	}
 
 

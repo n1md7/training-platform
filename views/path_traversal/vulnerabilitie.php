@@ -30,15 +30,18 @@ if( !is_array($viewmodel) && $viewmodel):
 		<h2>Below is content of desired file</h2>
 		<pre>%s</pre>
 		", $text);
-	// echo "<a href='".URL_PATH_TRAVERSAL_EASY_1."'>back</a>";
-	// echo "<h2>Below is content of desired file</h2>";
-	// echo "<pre>{$text}</pre>";
 endif;
 ?>
 
 <?php if( is_array($viewmodel) ): ?>
-<h1>Level: <?php echo $viewmodel['level']; ?></h1>
-<h2>Path Traversal</h2>
+<h1>Difficulty Level: <?php echo $viewmodel['level']['styled_name']; ?></h1>
+<div class="progress">
+  <div class="progress-bar <?php echo $viewmodel['level']['class']; ?> progress-bar-striped active" role="progressbar" style="width: <?php echo $viewmodel['level']['percent']; ?>%;animation:<?php echo $viewmodel['level']['css_name']; ?> 2s;">
+    <?php echo $viewmodel['level']['percent']; ?>%
+  </div>
+</div>
+
+<h2>Category: Path-traversal</h2>
 	<h3>
 		A path traversal attack (also known as directory traversal) aims to access files and directories that are stored outside the web root folder. By manipulating variables that reference files with “dot-dot-slash (../)” sequences and its variations or by using absolute file paths, it may be possible to access arbitrary files and directories stored on file system including application source code or configuration and critical system files. It should be noted that access to files is limited by system operational access control (such as in the case of locked or in-use files on the Microsoft Windows operating system).
 

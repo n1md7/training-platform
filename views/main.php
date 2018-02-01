@@ -94,7 +94,12 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Brute-force <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a class="link" href="<?php echo URL_BRUTE_FORCE_EASY_1; ?>">#1 - easy</a></li>
+              <li><a class="link" href="<?php echo URL_BRUTE_FORCE_EASY_1; ?>">Brute-force#1 - easy</a></li>
+              <li><a class="link" href="<?php echo URL_BRUTE_FORCE_MEDIUM_1; ?>">Brute-force#1 - medium</a></li>
+              <li><a class="link" href="<?php echo URL_BRUTE_FORCE_HARD_1; ?>">Brute-force#1 - hard</a></li>
+              <li><a class="link" href="<?php echo URL_BRUTE_FORCE_SUPER_HARD_1; ?>">Brute-force#1 - super hard</a></li>
+              <li><a class="link" href="<?php echo URL_BRUTE_FORCE_EXTREMELY_HARD_1; ?>">Brute-force#1 - extremely hard</a></li>
+              <li><a class="link" href="<?php echo URL_BRUTE_FORCE_IMPOSSIBLE_1; ?>">Brute-force#1 - impossible</a></li>
               <li><a href="#">blah</a></li>
               <li role="separator" class="divider"></li>
               <li><a href="#">Separated link</a></li>

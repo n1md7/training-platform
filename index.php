@@ -10,6 +10,7 @@ require('config.php');
 
 require('classes/hashmypassword.php');
 
+require('classes/progress.php');
 require('classes/Messages.php');
 require('classes/Bootstrap.php');
 require('classes/Controller.php');

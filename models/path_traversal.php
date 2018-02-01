@@ -6,7 +6,6 @@ class pathTraversalModel extends Bmodel{
 		function is vulnerable
 	*/
 	public function vulnerabilitie($level = null){
-		$headingText = '<span class="level-title level-easy">easy</span>';
 		$basic_filter = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
 
 		if( $level == 'medium'):
@@ -19,7 +18,6 @@ class pathTraversalModel extends Bmodel{
 			foreach( $basic_filter as $key => $val):
 				$get[$key] = str_replace( array_keys( $substitutions ), $substitutions, $val); 
 			endforeach;
-			$headingText = '<span class="level-title level-medium">medium</span>';
 
 		elseif($level == 'hard'):
 
@@ -35,7 +33,6 @@ class pathTraversalModel extends Bmodel{
 			foreach( $basic_filter as $key => $val):
 				$get[$key] = str_replace( array_keys( $substitutions ), $substitutions, $val); 
 			endforeach;
-			$headingText = '<span class="level-title level-hard">hard</span>';
 
 		elseif($level == 'super-hard'):
 
@@ -52,7 +49,6 @@ class pathTraversalModel extends Bmodel{
 			foreach( $basic_filter as $key => $val):
 				$get[$key] = str_replace( array_keys( $substitutions ), $substitutions, $val); 
 			endforeach;
-			$headingText = '<span class="level-title level-super-hard">super-hard</span>';
 
 		else:
 			$get = $basic_filter;
@@ -92,7 +88,7 @@ class pathTraversalModel extends Bmodel{
 			*/
 			'content' => $file_contents,
 			'name' => $files,
-			'level' => $headingText
+			'level' => (new Progress($level))->level()
 		);
 	}
 

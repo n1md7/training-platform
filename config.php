@@ -36,3 +36,8 @@ define("URL_PATH_TRAVERSAL_SUPERHARD_1", ROOT_URL."index.php?controller=path_tra
 
 
 define("URL_BRUTE_FORCE_EASY_1", ROOT_URL."index.php?controller=brute_force&action=vulnerabilitie&level=easy");
+define("URL_BRUTE_FORCE_MEDIUM_1", ROOT_URL."index.php?controller=brute_force&action=vulnerabilitie&level=medium");
+define("URL_BRUTE_FORCE_HARD_1", ROOT_URL."index.php?controller=brute_force&action=vulnerabilitie&level=hard");
+define("URL_BRUTE_FORCE_SUPER_HARD_1", ROOT_URL."index.php?controller=brute_force&action=vulnerabilitie&level=super-hard");
+define("URL_BRUTE_FORCE_EXTREMELY_HARD_1", ROOT_URL."index.php?controller=brute_force&action=vulnerabilitie&level=extremely-hard");
+define("URL_BRUTE_FORCE_IMPOSSIBLE_1", ROOT_URL."index.php?controller=brute_force&action=vulnerabilitie&level=impossible");
