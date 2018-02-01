@@ -5,7 +5,6 @@ class xssModel extends Bmodel{
 		function is vulnerable
 	*/
 	public function stored($level = null){
-		$headingText = '<span class="level-title level-easy">easy</span>';
 		if( $level == 'medium'):
 			$substitutions = array( 
 			   '<script>' => '', 
@@ -16,10 +15,8 @@ class xssModel extends Bmodel{
 			foreach( $_POST as $key => $val):
 				$post[$key] = str_replace( array_keys( $substitutions ), $substitutions, $val); 
 			endforeach;
-			$headingText = '<span class="level-title level-medium">medium</span>';
 		elseif($level == 'hard'):
 			$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-			$headingText = '<span class="level-title level-hard">hard</span>';
 		else:
 			$post = $_POST;
 		endif;
