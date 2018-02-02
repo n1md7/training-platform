@@ -14,7 +14,6 @@
 
 <body>
 
-<?php if(isset($_SESSION['logged_in'])): ?>
   <!-- nav start -->
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
@@ -28,6 +27,7 @@
         </button>
         <a class="navbar-brand" class="link" href="<?php echo ROOT_URL; ?>"></a>
       </div>
+    <?php if(isset($_SESSION['logged_in'])): ?>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -131,10 +131,10 @@
           </li>
         </ul>
       </div><!-- /.navbar-collapse -->
+      <?php endif; ?>
     </div><!-- /.container-fluid -->
   </nav>
 <!-- nav end -->
-<?php endif; ?>
 
 
 
@@ -210,6 +210,7 @@
 
 
 document.querySelectorAll('li a.link').forEach(x => x.onclick = () => {var showSpinner = new Spinner().create()})
+document.querySelectorAll('input[type=submit]').forEach(x => x.onclick = () => {var showSpinner = new Spinner().create()})
 
 
 </script>

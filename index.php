@@ -12,7 +12,8 @@ error_reporting(E_ALL);
 ini_set('display_errors', DEBUG ? 'On' : 'Off');
 
 
-require('classes/hashmypassword.php');
+
+require('classes/functions.php');
 
 require('classes/progress.php');
 require('classes/Messages.php');

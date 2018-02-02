@@ -4,11 +4,9 @@ class Users extends Controller{
 		private function check authentication
 	*/
 	private function isloggedin(){
-		if(!isset($_SESSION["logged_in"]))
-			return false;
-		else
-			return true;
+		return !isset($_SESSION["logged_in"])?false:true;
 	}
+
 
 
 	/*

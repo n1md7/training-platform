@@ -7,9 +7,6 @@ define("DB_HOST",       "localhost");
 define("DB_USER",       "root");
 define("DB_PASS",       "11235813");
 
-// define("BDB_USER",      "bug");
-// define("BDB_PASS",      "bug");
-// define("BDB_NAME",       "bugs");
 
 define("DB_NAME",       "training_platform");
 define("DB_USER_TABLE", "trp_users");

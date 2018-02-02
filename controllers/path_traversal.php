@@ -4,11 +4,9 @@ class path_traversal extends Controller{
 		private function check authentication
 	*/
 	private function isloggedin(){
-		if(!isset($_SESSION["logged_in"]))
-			return false;
-		else
-			return true;
+		return !isset($_SESSION["logged_in"])?false:true;
 	}
+
 
 
 	/*
@@ -29,7 +27,8 @@ class path_traversal extends Controller{
 	protected function vulnerabilitie(){
 		$this->restrictview();
 		$viewmodel = new pathTraversalModel();
-		$this->returnView($viewmodel->vulnerabilitie($_GET['level']), true);
+		$level = isset($_GET['level'])?$_GET['level']:null;
+		$this->returnView($viewmodel->vulnerabilitie($level), true);
 
 	}
 }

@@ -4,11 +4,9 @@ class xss extends Controller{
 		private function check authentication
 	*/
 	private function isloggedin(){
-		if(!isset($_SESSION["logged_in"]))
-			return false;
-		else
-			return true;
+		return !isset($_SESSION["logged_in"])?false:true;
 	}
+
 
 
 	/*
@@ -29,7 +27,8 @@ class xss extends Controller{
 	protected function stored(){
 		$this->restrictview();
 		$viewmodel = new xssModel();
-		$this->returnView($viewmodel->stored($_GET['level']), true);
+		$level = isset($_GET['level'])?$_GET['level']:null;
+		$this->returnView($viewmodel->stored($level), true);
 
 	}
 

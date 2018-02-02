@@ -4,10 +4,7 @@ class brute_force extends Controller{
 		private function check authentication
 	*/
 	private function isloggedin(){
-		if(!isset($_SESSION["logged_in"]))
-			return false;
-		else
-			return true;
+		return !isset($_SESSION["logged_in"])?false:true;
 	}
 
 
@@ -19,6 +16,7 @@ class brute_force extends Controller{
 	private function restrictview(){
 		if(!$this->isloggedin()):
 			header('Location: '.ROOT_URL);
+			Messages::setMsg('Forgot to sign in?','error');
 			return;
 		endif;
 	}
@@ -27,9 +25,13 @@ class brute_force extends Controller{
 		protected function for brute-force #1 easy level
 	*/
 	protected function vulnerabilitie(){
-		$this->restrictview();
+		/*
+			If it is easy level then it shouldn't be protected with authentication
+		*/
+		isset($_GET['level']) && $_GET['level'] == 'easy'?null:$this->restrictview();
 		$viewmodel = new bruteForceModel();
-		$this->returnView($viewmodel->vulnerabilitie($_GET['level']), true);
+		$level = isset($_GET['level'])?$_GET['level']:null;
+		$this->returnView($viewmodel->vulnerabilitie($level), true);
 
 	}
 }
