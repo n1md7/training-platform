@@ -11,7 +11,7 @@ class Bootstrap{
 		else:
 			$this->controller = $this->request['controller'];
 		endif;
-		
+
 		if(!isset($request['action']) || $this->request['action'] == ""):
 			$this->action = 'index';
 		else:
@@ -37,5 +37,5 @@ class Bootstrap{
 			DEBUG ? print('Controller class doesn\'t exist!'):header('HTTP/1.1 404 Not Found');
 			return;
 		endif;
-	endif;
+	}
 }
