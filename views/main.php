@@ -14,7 +14,7 @@
 
 <body>
 
-<?php if($_SESSION['logged_in']): ?>
+<?php if(isset($_SESSION['logged_in'])): ?>
   <!-- nav start -->
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">

@@ -35,7 +35,8 @@ CREATE TABLE IF NOT EXISTS xss_stored (
   id int(4) NOT NULL,
   fname varchar(10000) NOT NULL,
   lname varchar(200) NOT NULL,
-  age int(3) NOT NULL
+  age int(3) NOT NULL,
+  level varchar(30) NOT NULL DEFAULT 'easy'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO trp_users (user_id, email, password, avatar, reg_date_time, username) VALUES
@@ -47,22 +48,26 @@ ALTER TABLE trp_users
 ALTER TABLE trp_users
   MODIFY user_id int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
- 
-
- 
-INSERT INTO xss_stored (id, fname, lname, age) VALUES
-(1, 'Fianna', 'Maymond', 28),
-(2, 'Addy', 'Backshill', 13),
-(3, 'Burke', 'Defew', 16),
-(4, 'Herc', 'Dog', 49),
-(5, 'Keith', 'Beet', 54),
-(6, 'Alison', 'Mayou', 61);
- 
 ALTER TABLE xss_stored
   ADD PRIMARY KEY (id);
  
 ALTER TABLE xss_stored
   MODIFY id int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+ 
+
+ 
+INSERT INTO xss_stored (id, fname, lname, age, level) VALUES
+(1, 'Fianna', 'Maymond', 28, 'easy'),
+(2, 'Addy', 'Backshill', 13, 'easy'),
+(3, 'Burke', 'Defew', 16, 'easy'),
+(4, 'Herc', 'Dog', 49, 'easy'),
+(5, 'Fianna', 'Maymond', 28, 'medium'),
+(6, 'Addy', 'Backshill', 13, 'medium'),
+(7, 'Burke', 'Defew', 16, 'medium'),
+(8, 'Herc', 'Dog', 49, 'medium'),
+(9, 'Keith', 'Beet', 54, 'hard'),
+(10, 'Alison', 'Mayou', 61, 'hard');
+ 
  
 "
 

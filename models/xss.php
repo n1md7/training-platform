@@ -5,7 +5,9 @@ class xssModel extends Bmodel{
 		function is vulnerable
 	*/
 	public function stored($level = null){
+		$level_name = 'easy';
 		if( $level == 'medium'):
+			$level_name = 'medium';
 			$substitutions = array( 
 			   '<script>' => '', 
 			   '</script>'  => '',
@@ -16,6 +18,7 @@ class xssModel extends Bmodel{
 				$post[$key] = str_replace( array_keys( $substitutions ), $substitutions, $val); 
 			endforeach;
 		elseif($level == 'hard'):
+			$level_name = 'hard';
 			$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 		else:
 			$post = $_POST;
@@ -31,13 +34,14 @@ class xssModel extends Bmodel{
 			else:
 				$this->query('
 					INSERT INTO xss_stored 
-					(fname, lname, age) 
-					VALUES (:fname, :lname, :age)
+					(fname, lname, age, level) 
+					VALUES (:fname, :lname, :age, :level)
 				');
 
 				$this->bind(':fname', $post['fname'] );
 				$this->bind(':lname', $post['lname'] );
 				$this->bind(':age', $post['age'] );
+				$this->bind(':level', $level_name );
 
 				$this->execute();
 				if( $this->lastInsertId() ):
@@ -58,8 +62,10 @@ class xssModel extends Bmodel{
 			isset($post['delete']) && 
 			isset($post['amount'])
 		):
-			$this->query('DELETE FROM xss_stored ORDER BY id DESC LIMIT :lm');
+			$this->query('DELETE FROM xss_stored WHERE level = :level ORDER BY id DESC LIMIT :lm');
 			$this->bind(':lm', (int)$post['amount']);
+			$this->bind(':level', $level_name);
+
 			$this->execute();
 		
 			Messages::setMsg('Yay, Deleted last '.$post['amount'].' record(s)');
@@ -72,8 +78,10 @@ class xssModel extends Bmodel{
 			isset($post['delete']) && 
 			isset($post['id'])
 		):
-			$this->query('DELETE FROM xss_stored WHERE id = :id');
+			$this->query('DELETE FROM xss_stored WHERE id = :id AND level = :level');
 			$this->bind(':id', (int)$post['id']);
+			$this->bind(':level', $level_name);
+
 			$this->execute();
 		
 			Messages::setMsg('Yay, you just deleted one record!');
@@ -82,7 +90,8 @@ class xssModel extends Bmodel{
 		/*  
 			return data from db
 		*/
-		$this->query("SELECT * FROM xss_stored");
+		$this->query("SELECT * FROM xss_stored WHERE level = :level");
+		$this->bind(':level', $level_name);
 		$this->execute();
 		return [
 			'result' => $this->resultSet(),

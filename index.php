@@ -8,6 +8,10 @@ session_start();
 // Include Config
 require('config.php');
 
+error_reporting(E_ALL);
+ini_set('display_errors', DEBUG ? 'On' : 'Off');
+
+
 require('classes/hashmypassword.php');
 
 require('classes/progress.php');

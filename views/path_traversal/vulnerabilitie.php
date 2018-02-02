@@ -62,7 +62,7 @@ endif;
 		      <div class="caption">
 		        <h3><?php echo explode(".",$value,2)[0]; ?></h3>
 		        <p><?php echo $viewmodel['content'][$key][1]; ?></p>
-		        <p><a href="<?php echo $_SERVER['REQUEST_URI'].'&read='.'LFI_Files/'.$value; ?>" class="btn btn-primary" role="button">Read more</a></p>
+		        <p><a href="<?php echo $_SERVER['REQUEST_URI'].'&read='.'./LFI_Files/'.$value; ?>" class="btn btn-primary" role="button">Read more</a></p>
 		      </div>
 		    </div>
 		  </div>

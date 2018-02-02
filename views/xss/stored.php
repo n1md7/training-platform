@@ -36,7 +36,7 @@ An attacker can use XSS to send a malicious script to an unsuspecting user. The 
     </tr>
   </thead>
   <tbody>
-   <?php foreach ($viewmodel['result'] as $key => $value): ?>
+   <?php $key = 0; foreach ($viewmodel['result'] as $key => $value): ?>
     <tr>
       <th scope="row"><?php echo $key; ?></th>
       <td><?php echo $value['fname']; ?></td>

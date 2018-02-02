@@ -72,11 +72,11 @@ class pathTraversalModel extends Bmodel{
 
 			if (isset($get['read'])):
 				if (strpos($get['read'], $allowedPath) === false):
-					Messages::setMsg('File isn\'t in allowed path', 'error');
+					Messages::setMsg('A File isn\'t in allowed path', 'error');
 					return;
 				endif;	
 				if (substr($get['read'], -4) !== ".txt"):
-					Messages::setMsg('File doesn\'t have txt extinsion', 'error');
+					Messages::setMsg('A File doesn\'t have txt extinsion', 'error');
 					return;	
 				endif;
 			endif;
@@ -94,7 +94,7 @@ class pathTraversalModel extends Bmodel{
 			if( $readIt ):
 				return $readIt;
 			endif;
-			Messages::setMsg('We can\'t open '.$get['read'].' file', 'error');
+			Messages::setMsg('We can\'t open a file '.$get['read'], 'error');
 			return false;
 		endif;
 		

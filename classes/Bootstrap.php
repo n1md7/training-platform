@@ -3,48 +3,39 @@ class Bootstrap{
 	private $controller;
 	private $action;
 	private $request;
-	// private $id;
 
 	public function __construct($request){
 		$this->request = $request;
-		if($this->request['controller'] == ""){
+		if(!isset($request['controller']) || $this->request['controller'] == ""):
 			$this->controller = 'home';
-		} else {
+		else:
 			$this->controller = $this->request['controller'];
-		}
-		if($this->request['action'] == ""){
+		endif;
+		
+		if(!isset($request['action']) || $this->request['action'] == ""):
 			$this->action = 'index';
-		} else {
+		else:
 			$this->action = $this->request['action'];
-		}
+		endif;
 	}
 
 	public function createController(){
-		// Check Class
-		if(class_exists($this->controller)){
+		if(class_exists($this->controller)):
 			$parents = class_parents($this->controller);
-			// Check Extend
-			if(in_array("Controller", $parents)){
-				if(method_exists($this->controller, $this->action)){
+			if(in_array("Controller", $parents)):
+				if(method_exists($this->controller, $this->action)):
 					return new $this->controller($this->action, $this->request);
-				} else {
-					// Method Does Not Exist
-					echo '<h1>Method does not exist</h1>';
+				else:
+					DEBUG ? print('Method doesn\'t exist!'):header('HTTP/1.1 404 Not Found');
 					return;
-				}
-			} else {
-				// Base Controller Does Not Exist
-				echo '<h1>Base controller not found</h1>';
+				endif;
+			else:
+				DEBUG ? print('Base controller not found!'):header('HTTP/1.1 404 Not Found');
 				return;
-			}
-		} else {
-			// Controller Class Does Not Exist
-			echo "<div class='container center'>";
-			echo "<h1>Controller Class Doesn't Exists</h1>";
-			echo "<hr>";
-			echo "<a href='".ROOT_URL."' class='btn btn-default'>Return To MainPage</a>";
-			echo "</div>";
+			endif;
+		else:
+			DEBUG ? print('Controller class doesn\'t exist!'):header('HTTP/1.1 404 Not Found');
 			return;
-		}
-	}
+		endif;
+	endif;
 }
