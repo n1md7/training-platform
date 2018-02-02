@@ -33,6 +33,7 @@ define("URL_PATH_TRAVERSAL_EASY_1", ROOT_URL."index.php?controller=path_traversa
 define("URL_PATH_TRAVERSAL_MEDIUM_1", ROOT_URL."index.php?controller=path_traversal&action=vulnerabilitie&level=medium");
 define("URL_PATH_TRAVERSAL_HARD_1", ROOT_URL."index.php?controller=path_traversal&action=vulnerabilitie&level=hard");
 define("URL_PATH_TRAVERSAL_SUPERHARD_1", ROOT_URL."index.php?controller=path_traversal&action=vulnerabilitie&level=super-hard");
+define("URL_PATH_TRAVERSAL_IMPOSSIBLE_1", ROOT_URL."index.php?controller=path_traversal&action=vulnerabilitie&level=impossible");
 
 
 define("URL_BRUTE_FORCE_EASY_1", ROOT_URL."index.php?controller=brute_force&action=vulnerabilitie&level=easy");

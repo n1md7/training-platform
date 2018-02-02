@@ -1,6 +1,6 @@
 <?php
 class Messages{
-	public static function setMsg($text, $type){
+	public static function setMsg($text, $type = 'success'){
 		switch($type):
 			case 'error':
 				$_SESSION['errorMsg'] = $text;

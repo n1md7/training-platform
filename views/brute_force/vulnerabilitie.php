@@ -22,10 +22,10 @@
   <hr>
     <form method="post" action="<?php $_SERVER['PHP_SELF']; ?>" >
     	<div class="form-group">
-    		<input type="text" placeholder="Username" name="username"  class="form-control" autocomplete="off" />
+    		<input type="text" placeholder="Username" name="user"  class="form-control" autocomplete="off" />
     	</div>
     	<div class="form-group">
-        <input type="password" placeholder="Password" name="password"  class="form-control" />
+        <input type="password" placeholder="Password" name="pass"  class="form-control" />
       </div>
       <input class="btn btn-primary btn-xl pull-right form-control" name="signin" type="submit" value="Sign In">
     </form>

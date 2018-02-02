@@ -7,6 +7,7 @@ class pathTraversalModel extends Bmodel{
 	*/
 	public function vulnerabilitie($level = null){
 		$basic_filter = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
+		$allowedPath = "LFI_Files/";
 
 		if( $level == 'medium'):
 
@@ -27,6 +28,7 @@ class pathTraversalModel extends Bmodel{
 			   '.\\'  => '',
 			   './'  => '',
 			   '..'  => '',
+			   '...\\'  => '',
 			   '.../'  => ''
 			);
 			$get = array();
@@ -43,6 +45,7 @@ class pathTraversalModel extends Bmodel{
 			   './'    => '',
 			   '..'    => '',
 			   '.../'  => '',
+			   '...\\'  => '',
 			   '%'     => ''
 			);
 			$get = array();
@@ -50,6 +53,36 @@ class pathTraversalModel extends Bmodel{
 				$get[$key] = str_replace( array_keys( $substitutions ), $substitutions, $val); 
 			endforeach;
 
+		elseif($level == 'impossible'):
+
+			$substitutions = array( 
+			   '%'     => '',
+			   '../'   => '', 
+			   '..\\'  => '',
+			   '.\\'   => '',
+			   './'    => '',
+			   '..'    => '',
+			   '.../'  => '',
+			   '...\\'  => '',
+			);
+			$get = array();
+			foreach( $basic_filter as $key => $val):
+				$get[$key] = str_replace( array_keys( $substitutions ), $substitutions, $val); 
+			endforeach;
+
+			if (isset($get['read'])):
+				if (strpos($get['read'], $allowedPath) === false):
+					Messages::setMsg('File isn\'t in allowed path', 'error');
+					return;
+				endif;	
+				if (substr($get['read'], -4) !== ".txt"):
+					Messages::setMsg('File doesn\'t have txt extinsion', 'error');
+					return;	
+				endif;
+			endif;
+			/*
+				later i have to add reg_ex here for validation
+			*/
 		else:
 			$get = $basic_filter;
 		endif;
@@ -74,7 +107,7 @@ class pathTraversalModel extends Bmodel{
 			array_push(
 				$file_contents, 
 					explode("<*>", 
-						file_get_contents('./LFI_Files/'.$value), 3));
+						file_get_contents('LFI_Files/'.$value), 3));
 		endforeach;
 
 		return array(

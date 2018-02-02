@@ -39,6 +39,7 @@
               <li class=""><a class="link" href="<?php echo URL_PATH_TRAVERSAL_MEDIUM_1; ?>">Path Traversal#1 - medium</a></li>
               <li class=""><a class="link" href="<?php echo URL_PATH_TRAVERSAL_HARD_1; ?>">Path Traversal#1 - hard</a></li>
               <li class=""><a class="link" href="<?php echo URL_PATH_TRAVERSAL_SUPERHARD_1; ?>">Path Traversal#1 - super-hard</a></li>
+              <li class=""><a class="link" href="<?php echo URL_PATH_TRAVERSAL_IMPOSSIBLE_1; ?>">Path Traversal#1 - impossible</a></li>
               <li role="separator" class="divider"></li>
               <li><a href="#">Reflected#1 - easy</a></li>
               <li><a href="#">Reflected#2 - easy</a></li>
