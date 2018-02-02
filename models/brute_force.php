@@ -46,11 +46,20 @@ class bruteForceModel extends Bmodel{
 					else:
 						Messages::setMsg('Wrong credentials!<br>Status code: 401 Unauthorized', 'error');
 						header('HTTP/1.1 401 Unauthorized');
+						/*
+							super-hard level security
+							sleep 1000 milliseconds if !correct
+							usleep parameter is in microseconds
+							1 000 000 is 1 second
+							sleep(1) sleep 1 second
+						*/
+						$level == 'super-hard'? sleep(1):null;
 					endif;
 
 				}else{
 					Messages::setMsg('CSRF token is wrong!', 'error');
 					header('HTTP/1.1 401 Unauthorized');
+					$level == 'super-hard'? usleep(300000):null;
 				}
 					
 			endif;
@@ -60,14 +69,6 @@ class bruteForceModel extends Bmodel{
 			$csrf = Generate::csrf(32);
 			$_SESSION['brute']['csrf'] = $csrf;
 
-			/*
-				super-hard level security
-				sleep 300 milliseconds per request
-				usleep parameter is in microseconds
-				1 000 000 is 1 second
-				  300 000 is 300 millisecond
-			*/
-			$level == 'super-hard'? usleep(300000):null;
 			
 			return array(
 					'level' => (new Progress($level))->level(),
@@ -121,7 +122,7 @@ class bruteForceModel extends Bmodel{
 						'Correct credentials for the user: '.$result['username'].
 						'!<br><b>Great job man!</b>'.
 						'<br>Status code: 200 ok <br>'.
-						'<hr> <img style="width:100%;" class="avatar" src="'.__IMG__.__IMG__.$result['avatar'].'" >');
+						'<hr> <img style="width:100%;" class="avatar" src="'.__IMG__.$result['avatar'].'" >');
 					header('HTTP/1.1 200 OK');
 				else:
 					Messages::setMsg('Wrong credentials!<br>Status code: 401 Unauthorized', 'error');
