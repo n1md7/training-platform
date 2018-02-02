@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS xss_stored (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO trp_users (user_id, email, password, avatar, reg_date_time, username) VALUES
-(1, 'nimda@nimda.com', 'f99c91b8541a9a56909ed9b045de4ddeb1da99c1', 'undefined', '2018-01-10 22:36:27', 'nimda');
+(1, 'nimda@nimda.com', 'f99c91b8541a9a56909ed9b045de4ddeb1da99c1', 'avatar_1.jpg', '2018-01-10 22:36:27', 'nimda');
 
 ALTER TABLE trp_users
   ADD PRIMARY KEY (user_id);

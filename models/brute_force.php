@@ -41,7 +41,7 @@ class bruteForceModel extends Bmodel{
 							'Correct credentials for the user: '.$result['username'].
 							'!<br><b>Great job man!</b>'.
 							'<br>Status code: 200 ok <br>'.
-							'<hr> <img style="width:100%;" class="avatar" src="'.$result['avatar'].'" >');
+							'<hr> <img style="width:100%;" class="avatar" src="'.__IMG__.$result['avatar'].'" >');
 						header('HTTP/1.1 200 OK');
 					else:
 						Messages::setMsg('Wrong credentials!<br>Status code: 401 Unauthorized', 'error');
@@ -74,10 +74,24 @@ class bruteForceModel extends Bmodel{
 					'csrf'  => $csrf
 				);
 
-		} else if( $level == 'super-hard'){
+		} else if( $level == 'extremely-hard'){
 			/*
-				super-hard level here
+				extremely-hard level here
 			*/
+				Messages::setMsg('Comming soon!','info');
+				return array(
+					'level' => (new Progress($level))->level(),
+					'csrf'  => ''
+				);
+		} else if( $level == 'impossible'){
+			/*
+				extremely-hard level here
+			*/
+				Messages::setMsg('Comming soon!','info');
+				return array(
+					'level' => (new Progress($level))->level(),
+					'csrf'  => ''
+				);
 		} else {
 			/*
 				It is easy level and medium level
@@ -107,7 +121,7 @@ class bruteForceModel extends Bmodel{
 						'Correct credentials for the user: '.$result['username'].
 						'!<br><b>Great job man!</b>'.
 						'<br>Status code: 200 ok <br>'.
-						'<hr> <img style="width:100%;" class="avatar" src="'.$result['avatar'].'" >');
+						'<hr> <img style="width:100%;" class="avatar" src="'.__IMG__.__IMG__.$result['avatar'].'" >');
 					header('HTTP/1.1 200 OK');
 				else:
 					Messages::setMsg('Wrong credentials!<br>Status code: 401 Unauthorized', 'error');

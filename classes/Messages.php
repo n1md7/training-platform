@@ -42,6 +42,18 @@ class Messages{
 			unset($_SESSION['warnMsg']);
 		}
 
+		if(isset($_SESSION['infoMsg'])){
+			?>
+				<div class="alert alert-info text-center" >
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					<strong>Information!</strong>
+					<hr>
+					<?php echo $_SESSION['infoMsg'];?>
+				</div>
+			<?php
+			unset($_SESSION['infoMsg']);
+		}
+
 		if(isset($_SESSION['successMsg'])){
 			?>
 				<div class="alert alert-success text-center" >
@@ -53,18 +65,6 @@ class Messages{
 
 			<?php
 			unset($_SESSION['successMsg']);
-		}
-
-		if(isset($_SESSION['infoMsg'])){
-			?>
-				<div class="alert alert-success text-center" >
-					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-					<strong>Information!</strong>
-					<hr>
-					<?php echo $_SESSION['infoMsg'];?>
-				</div>
-			<?php
-			unset($_SESSION['infoMsg']);
 		}
 	}
 }

@@ -32,12 +32,12 @@
   <hr>
     <form method="post" action="<?php $_SERVER['PHP_SELF']; ?>" >
     	<div class="form-group">
-    		<input type="text" placeholder="Username" name="user"  class="form-control" autocomplete="off" />
+    		<input type="text" placeholder="Username" name="user" autofocus="on"  class="form-control" autocomplete="off" />
     	</div>
     	<div class="form-group">
         <input type="password" placeholder="Password" name="pass"  class="form-control" />
       </div>
-      <?php if($show_csrf): ?>
+      <?php if($show_csrf): ?>  
         <div class="form-group">
           <input type="text" placeholder="csrf" name="csrf"  class="form-control" value="<?php echo $viewmodel['csrf']; ?>" />
         </div>

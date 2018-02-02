@@ -40,11 +40,7 @@
               <li class=""><a class="link" href="<?php echo URL_PATH_TRAVERSAL_HARD_1; ?>">Path Traversal#1 - hard</a></li>
               <li class=""><a class="link" href="<?php echo URL_PATH_TRAVERSAL_SUPERHARD_1; ?>">Path Traversal#1 - super-hard</a></li>
               <li class=""><a class="link" href="<?php echo URL_PATH_TRAVERSAL_IMPOSSIBLE_1; ?>">Path Traversal#1 - impossible</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Reflected#1 - easy</a></li>
-              <li><a href="#">Reflected#2 - easy</a></li>
-              <li><a href="#">Reflected#3 - medium</a></li>
-              <li><a href="#">Reflected#4 - medium</a></li>
+              <!-- <li role="separator" class="divider"></li> -->
             </ul>
           </li>
 
@@ -54,14 +50,10 @@
               <li class=""><a class="link" href="<?php echo URL_XSS_STORED_EASY_1; ?>">Stored#1 - easy</a></li>
               <li><a class="link" href="<?php echo URL_XSS_STORED_MEDIUM_1; ?>">Stored#1 - medium</a></li>
               <li><a class="link" href="<?php echo URL_XSS_STORED_HARD_1; ?>">Stored#1 - hard</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Reflected#1 - easy</a></li>
-              <li><a href="#">Reflected#2 - easy</a></li>
-              <li><a href="#">Reflected#3 - medium</a></li>
-              <li><a href="#">Reflected#4 - medium</a></li>
+              <!-- <li role="separator" class="divider"></li> -->
             </ul>
           </li>
-
+<!-- 
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SQLi <span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -75,9 +67,9 @@
               <li><a href="#">SQL Injection blind#3 - medium</a></li>
               <li><a href="#">SQL Injection blind#3 - medium</a></li>
             </ul>
-          </li>
+          </li> -->
 
-          <li class="dropdown">
+      <!--     <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">FI <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="#">LFI#1 - easy</a></li>
@@ -90,7 +82,7 @@
               <li><a href="#">RFI#3 - medium</a></li>
               <li><a href="#">RFI#4 - medium</a></li>
             </ul>
-          </li>
+          </li> -->
 
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Brute-force <span class="caret"></span></a>
@@ -101,11 +93,6 @@
               <li><a class="link" href="<?php echo URL_BRUTE_FORCE_SUPER_HARD_1; ?>">Brute-force#1 - super hard</a></li>
               <li><a class="link" href="<?php echo URL_BRUTE_FORCE_EXTREMELY_HARD_1; ?>">Brute-force#1 - extremely hard</a></li>
               <li><a class="link" href="<?php echo URL_BRUTE_FORCE_IMPOSSIBLE_1; ?>">Brute-force#1 - impossible</a></li>
-              <li><a href="#">blah</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
             </ul>
           </li>
         </ul>
