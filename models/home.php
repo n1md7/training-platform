@@ -4,7 +4,6 @@ class HomeModel extends Model{
 		if( empty($_SESSION['user_data']["username"]) ):
 			header('Location: '.URL_SIGNIN);
 		endif;
-
 		return;
 	}
 }

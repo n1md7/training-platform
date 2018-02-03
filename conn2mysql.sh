@@ -14,10 +14,11 @@ echo -e "example:\n bash conn2mysql.sh connect  root  p@ssw0rd \n"
 
 
 QUERY="
-  CREATE DATABASE IF NOT EXISTS training_platform;
+DROP DATABASE if exists training_platform;
 
-  USE training_platform;
+CREATE DATABASE IF NOT EXISTS training_platform;
 
+USE training_platform;
 
 SET SQL_MODE = 'NO_AUTO_VALUE_ON_ZERO';
 SET time_zone = '+02:00';
@@ -60,11 +61,11 @@ INSERT INTO xss_stored (id, fname, lname, age, level) VALUES
 (1, 'Fianna', 'Maymond', 28, 'easy'),
 (2, 'Addy', 'Backshill', 13, 'easy'),
 (3, 'Burke', 'Defew', 16, 'easy'),
-(4, 'Herc', 'Dog', 49, 'easy'),
-(5, 'Fianna', 'Maymond', 28, 'medium'),
-(6, 'Addy', 'Backshill', 13, 'medium'),
-(7, 'Burke', 'Defew', 16, 'medium'),
-(8, 'Herc', 'Dog', 49, 'medium'),
+(4, 'Harry', 'Ford', 25, 'easy'),
+(5, 'Fianna', 'Maymond', 38, 'medium'),
+(6, 'Addy', 'Backshill', 11, 'medium'),
+(7, 'Burke', 'Defew', 34, 'medium'),
+(8, 'Hercy', 'Dog', 49, 'medium'),
 (9, 'Keith', 'Beet', 54, 'hard'),
 (10, 'Alison', 'Mayou', 61, 'hard');
  
