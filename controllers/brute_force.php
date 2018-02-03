@@ -28,7 +28,9 @@ class brute_force extends Controller{
 		/*
 			If it is easy level then it shouldn't be protected with authentication
 		*/
-		isset($_GET['level']) && $_GET['level'] == 'easy'?null:$this->restrictview();
+		if (isset($_GET['level']) && $_GET['level'] != 'easy'):
+			$this->restrictview();
+		endif;
 		$viewmodel = new bruteForceModel();
 		$level = isset($_GET['level'])?$_GET['level']:null;
 		$this->returnView($viewmodel->vulnerabilitie($level), true);

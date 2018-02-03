@@ -58,7 +58,7 @@ class bruteForceModel extends Bmodel{
 
 				}else{
 					Messages::setMsg('CSRF token is wrong!', 'error');
-					header('HTTP/1.1 401 Unauthorized');
+					header('HTTP/1.1 200 ok');
 					$level == 'super-hard'? usleep(300000):null;
 				}
 					
