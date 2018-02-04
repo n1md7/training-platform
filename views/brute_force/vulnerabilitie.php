@@ -42,6 +42,16 @@
           <input type="text" placeholder="csrf" name="csrf"  class="form-control" value="<?php echo $viewmodel['csrf']; ?>" />
         </div>
       <?php endif; ?>
+      <?php if(isset($viewmodel['captcha'])): ?>  
+        <div class="form-group">
+           <div class="alert alert-info captcha">
+            <strong><?php echo $viewmodel['captcha']; ?></strong>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="number" autocomplete="off" placeholder="How many letter '<?php echo $viewmodel['rndChar']; ?>' can you see?" name="captcha"  class="form-control" />
+        </div>
+      <?php endif; ?>
       <input class="btn btn-primary btn-xl pull-right form-control" name="signin" type="submit" value="Sign In">
     </form>
   </div>

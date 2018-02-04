@@ -44,8 +44,8 @@ class bruteForceModel extends Bmodel{
 							'<hr> <img style="width:100%;" class="avatar" src="'.__IMG__.$result['avatar'].'" >');
 						header('HTTP/1.1 200 OK');
 					else:
-						Messages::setMsg('Wrong credentials!<br>Status code: 401 Unauthorized', 'error');
-						header('HTTP/1.1 401 Unauthorized');
+						Messages::setMsg('Wrong credentials!', 'error');
+						header('HTTP/1.1 200 OK');
 						/*
 							super-hard level security
 							sleep 1000 milliseconds if !correct
@@ -59,7 +59,7 @@ class bruteForceModel extends Bmodel{
 				}else{
 					Messages::setMsg('CSRF token is wrong!', 'error');
 					header('HTTP/1.1 200 ok');
-					$level == 'super-hard'? usleep(300000):null;
+					$level == 'super-hard'? sleep(1):null;
 				}
 					
 			endif;
@@ -79,10 +79,73 @@ class bruteForceModel extends Bmodel{
 			/*
 				extremely-hard level here
 			*/
-				Messages::setMsg('Comming soon!','info');
+				if( 
+				isset($post['user'])    &&
+				isset($post['pass'])    &&
+				isset($post['csrf'])    &&
+				isset($post['captcha']) &&
+				isset($post['signin'])
+			):
+
+				if( isset($_SESSION['brute']['csrf']) && 
+					isset($_SESSION['brute']['captcha']) &&
+					$_SESSION['brute']['csrf'] == $post['csrf'] &&
+					$_SESSION['brute']['captcha']['count'] == $post['captcha']){
+
+					$pass = Generate::sha1($post['pass']);
+					
+					$this->query('SELECT * FROM trp_users WHERE username = :user AND password = :pass');
+					$this->bind(':user', $post['user']);
+					$this->bind(':pass', $pass);
+					$this->execute();
+					
+					if( $this->stmt->rowCount() > 0 ):
+						/* 
+							If there is at least one row matching those password and username
+							then it is a successfull login
+						*/
+
+						$result = $this->stmt->fetch(PDO::FETCH_ASSOC);
+						Messages::setMsg(
+							'Correct credentials for the user: '.$result['username'].
+							'!<br><b>Great job man!</b>'.
+							'<br>Status code: 200 ok <br>'.
+							'<hr> <img style="width:100%;" class="avatar" src="'.__IMG__.$result['avatar'].'" >');
+						header('HTTP/1.1 200 OK');
+					else:
+						Messages::setMsg('Wrong credentials!', 'error');
+						header('HTTP/1.1 200 OK');
+
+						usleep(rand(200000,4000000));
+
+					endif;
+
+				}else{
+					Messages::setMsg('CSRF token or CAPTCHA is wrong!', 'error');
+					header('HTTP/1.1 200 ok');
+					/* random delay from 200 milliseconds to 4 seconds*/
+					usleep(rand(200000,4000000));
+				}
+					
+			endif;
+				/*
+				Generate session token (csrf)
+				*/
+				$csrf = Generate::csrf(32);
+				$_SESSION['brute']['csrf'] = $csrf;
+				
+				$letters = 'AAABBBCCCDDDFFFGGGHHHJJJKKKLLLMMMNNNPPPQQQ';
+				$chars = Generate::csrf(20, $letters);
+				$captcha = join("-", str_split($chars));
+				$rndChar = Generate::rndChar($letters);
+				$_SESSION['brute']['captcha']['count'] = Count::char($chars, $rndChar);
+				
+				// Messages::setMsg('Comming soon!','info');
 				return array(
 					'level' => (new Progress($level))->level(),
-					'csrf'  => ''
+					'csrf'  => $csrf,
+					'captcha' => $captcha,
+					'rndChar' => $rndChar
 				);
 		} else if( $level == 'impossible'){
 			/*

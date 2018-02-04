@@ -38,3 +38,8 @@ body div.alert img.avatar{
 }
 
  
+
+body div.form-group>div.captcha{
+  width: 100%;
+  text-align: center;
+}
