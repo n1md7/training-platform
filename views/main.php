@@ -25,7 +25,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" class="link" href="<?php echo ROOT_URL; ?>"></a>
+        <a class="navbar-brand link" href="<?php echo ROOT_URL; ?>"></a>
       </div>
     <?php if(isset($_SESSION['logged_in'])): ?>
 
@@ -50,6 +50,8 @@
               <li class=""><a class="link" href="<?php echo URL_XSS_STORED_EASY_1; ?>">Stored#1 - easy</a></li>
               <li><a class="link" href="<?php echo URL_XSS_STORED_MEDIUM_1; ?>">Stored#1 - medium</a></li>
               <li><a class="link" href="<?php echo URL_XSS_STORED_HARD_1; ?>">Stored#1 - hard</a></li>
+              <li><a class="link" href="<?php echo URL_XSS_STORED_SUPER_HARD_1; ?>">Stored#1 - super-hard</a></li>
+              <li><a class="link" href="<?php echo URL_XSS_STORED_IMPOSSIBLE_1; ?>">Stored#1 - impossible</a></li>
               <!-- <li role="separator" class="divider"></li> -->
             </ul>
           </li>
@@ -150,40 +152,40 @@
   creating Spinner before loading new page
   image dimansions 200x200
 */
-  function Spinner(self = this){
-    this.create = function(){
-      this.img = new Image()
-      this.img.style.setProperty('display','none')
-      this.img.src = "<?php echo ROOT_URL.'';?>/assets/img/loading.gif"
-      this.img.onload = loadImage
-      this.img.onerror = function(){
-        console.warn("ERROR: Couldn't download " + self.img.src)
-      }
-      return this
-  }
-  var loadImage = function(){
+  var loadImage = function(obj){
     var doc = document, imgDim = [200, 200]
-    doc.body.style.overflow = 'hidden'
+    // doc.body.style.overflow = 'hidden'
     var style, appendStyle = '', styleImg, appendStyleImg = ''
-    self.transparentDiv = doc.createElement('div')
-    self.transparentImg = doc.createElement('img')
+    obj.transparentDiv = doc.createElement('div')
+    obj.transparentImg = doc.createElement('img')
     style = {
       position : 'fixed', width : '100%', height : '100%',
       top : 0, left : 0, 'z-index' : 99999,
-      'background-color' : 'rgba(0,0,0,0.4)'
+      'background-color' : 'rgba(0,0,0,0.4)', display:'none'
     }
     styleImg = {
       top : (window.innerHeight - imgDim[0]) / 2 + 'px',
       left : (window.innerWidth - imgDim[1]) / 2 + 'px',
-      position : 'fixed', 'z-index' : 999999
+      position : 'fixed', 'z-index' : 999999, display:'none'
     }
     for(s in style){ appendStyle += s + ':' + style[s] + ';'}
     for(s in styleImg){ appendStyleImg += s + ':' + styleImg[s] + ';'}
-    self.transparentImg.src = self.img.src
-    self.transparentDiv.setAttribute('style', appendStyle)
-    self.transparentImg.setAttribute('style', appendStyleImg)
-    doc.body.appendChild(self.transparentDiv)
-    doc.body.appendChild(self.transparentImg)
+    obj.transparentImg.src = obj.img.src
+    obj.transparentDiv.setAttribute('style', appendStyle)
+    obj.transparentImg.setAttribute('style', appendStyleImg)
+    doc.body.appendChild(obj.transparentDiv)
+    doc.body.appendChild(obj.transparentImg)
+  }
+  function Spinner(){
+    this.create = function(){
+      this.img = new Image();
+      this.img.style.setProperty('display','block');
+      this.img.src = "<?php echo ROOT_URL.'';?>/assets/img/loading3.gif";
+      this.img.onload = loadImage(this);
+      this.img.onerror = function(){
+        console.warn("ERROR: Couldn't download " + self.img.src);
+      }
+      return this;
   }
   this.hide = function(){
     document.body.removeChild(this.transparentImg)
@@ -191,13 +193,17 @@
     document.body.style.overflow = 'auto'
   }
   this.show = function(){
-    this.img.setProperty('display','block')
+    this.img.style.setProperty('display','block')
+    this.transparentImg.style.setProperty('display','block')
+    this.transparentDiv.style.setProperty('display','block')
+    document.body.style.overflow = 'auto'
   }
 }
 
+var spinner = new Spinner().create();
+document.querySelectorAll('a.link').forEach(x => x.onclick = () => {spinner.show()})
+document.querySelectorAll('form').forEach(x => x.onsubmit = () => {spinner.show()})
 
-document.querySelectorAll('li a.link').forEach(x => x.onclick = () => {var showSpinner = new Spinner().create()})
-document.querySelectorAll('input[type=submit]').forEach(x => x.onclick = () => {var showSpinner = new Spinner().create()})
 
 
 </script>

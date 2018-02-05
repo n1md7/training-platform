@@ -25,6 +25,8 @@
 	define("URL_XSS_STORED_EASY_1",   ROOT_URL."index.php?controller=xss&action=stored&level=easy");
 	define("URL_XSS_STORED_MEDIUM_1", ROOT_URL."index.php?controller=xss&action=stored&level=medium");
 	define("URL_XSS_STORED_HARD_1",   ROOT_URL."index.php?controller=xss&action=stored&level=hard");
+	define("URL_XSS_STORED_SUPER_HARD_1",   ROOT_URL."index.php?controller=xss&action=stored&level=super-hard");
+	define("URL_XSS_STORED_IMPOSSIBLE_1",   ROOT_URL."index.php?controller=xss&action=stored&level=impossible");
 
 	define("URL_PATH_TRAVERSAL_EASY_1",       ROOT_URL."index.php?controller=path_traversal&action=vulnerabilitie&level=easy");
 	define("URL_PATH_TRAVERSAL_MEDIUM_1",     ROOT_URL."index.php?controller=path_traversal&action=vulnerabilitie&level=medium");

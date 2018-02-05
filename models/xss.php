@@ -4,31 +4,57 @@ class xssModel extends Bmodel{
 		xss stored#1 easy level
 		function is vulnerable
 	*/
-	public function stored($level = null){
+	public function stored($level = null, $post = array()){
 		$level_name = 'easy';
 		if( $level == 'medium'):
 			$level_name = 'medium';
+			/* merge lowwer and upper letters. Script,<scRIpt> or <scrscriptipt>*/
 			$substitutions = array( 
 			   '<script>' => '', 
 			   '</script>'  => '',
 			   'script'  => ''
 			);
-			$post = array();
 			foreach( $_POST as $key => $val):
 				$post[$key] = str_replace( array_keys( $substitutions ), $substitutions, $val); 
 			endforeach;
 		elseif($level == 'hard'):
 			$level_name = 'hard';
-			$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+			/* <scrscriptipt> */
+			$substitutions = array( 
+			   '<script>' => '', 
+			   '</script>' => '', 
+			   'script'  => ''
+			);
+			foreach( $_POST as $key => $val):
+				$post[$key] = str_replace( array_keys( $substitutions ), $substitutions, strtolower($val)); 
+			endforeach;
+		elseif($level == 'super-hard'):
+			$level_name = 'super-hard';
+			/* html inline events like <img src='x' onerror="alert()">*/
+			$substitutions = array( 
+			   '<script>' => '', 
+			   '</script>' => '', 
+			   'script'  => ''
+			);
+			foreach( $_POST as $key => $val):
+				$val = preg_replace( '/<(.*)s(.*)c(.*)r(.*)i(.*)p(.*)t>/i', ' ', $val ); 
+				$post[$key] = str_replace( array_keys( $substitutions ), $substitutions, $val); 
+			endforeach;
+		elseif($level == 'impossible'):
+			$level_name = 'impossible';
+			$post = htmlspecialchars(INPUT_POST);
+			$post = filter_input_array($post, FILTER_SANITIZE_STRING);
 		else:
+			/*easy level*/
 			$post = $_POST;
 		endif;
 
 		if(isset( $post['submit']) ):
 			if(
-				!isset( $post['fname'] ) ||
-				!isset( $post['lname'] ) ||
-				!isset( $post['age'] ) 
+				!isset( $post['fname'] ) || empty($post['fname']) ||
+				!isset( $post['lname'] ) || empty($post['lname']) ||
+				!isset( $post['age'] )   || empty($post['age'])
 			):
 				Messages::setMsg('Empty fields detected', 'error');
 			else:
