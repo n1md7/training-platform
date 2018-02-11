@@ -10,8 +10,8 @@ abstract class Model{
 		catch(PDOException $e){
 		    die($this->dbh."<br>".
 		    	$e->getMessage()."<br><br>".
-		    	"[<b style=\"color:green;\">Info</b>] Hey dude, if it's first time you see this message please click <a href=\"".ROOT_URL.
-		    	"install.php\">here</a> to install awesome application!");
+		    	"[<b style=\"color:blue;\">Info</b>] Hey dude, if it's first time you see this message please click <a href=\"".ROOT_URL.
+		    	"install.php\">here</a> to install awesome application!<br>[<b style=\"color:blue;\">Info</b>] If you see this error again, then please open config.php file and change DB_USER, DB_PASS yourself!");
 		}
 	}
 

@@ -56,8 +56,22 @@ if(isset($_POST['install'])):
 					(9, 'Keith', 'Beet', 54, 'hard'),
 					(10, 'Alison', 'Mayou', 61, 'hard');
 	 ");
-	    echo "<b style=\"color:green;\">DB created successfully</b>";
-		echo "<a href=\"./\"> Main</a>";
+
+
+	    echo "[<b style=\"color:rgba(0, 72, 255, 0.9);\">Info</b>] DB created successfully<br>";
+
+	    $path_to_file = 'config.php';
+		$file_contents = file_get_contents($path_to_file);
+		$file_contents = str_replace('define("DB_USER",',"define(\"DB_USER\",\"".$_POST['DB_username']."\");//",$file_contents);
+		file_put_contents($path_to_file,$file_contents);
+
+		$file_contents = file_get_contents($path_to_file);
+		$file_contents = str_replace('define("DB_PASS",',"define(\"DB_PASS\",\"".$_POST['DB_password']."\");//",$file_contents);
+		file_put_contents($path_to_file,$file_contents);
+
+	    echo "[<b style=\"color:rgba(0, 72, 255, 0.9);\">Info</b>] config.php file modified successfully<br>";
+		echo "[<b style=\"color:rgba(0, 72, 255, 0.9);\">Info</b>] Go to <a href=\"./\">Main</a>";
+
 
 	}
 	catch(PDOException $e){
@@ -74,7 +88,6 @@ endif;
 
 <form method="post">
 	<p>[<b style="color:rgba(0, 72, 255, 0.9);">Info</b>] Please insert your DataBase credentials! Default user is root and it suppose to valid everywhere but you are free to provide any.
-	<br>
 	<br>
 	[<b style="color:rgba(255, 72, 0, 0.9);">NB</b>] You should be able to authorize using those username and password in your mysql database!
 	</p>

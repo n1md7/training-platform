@@ -78,7 +78,8 @@ function connect {
   mysql --user="$1" --password="$2" --execute="$QUERY"
   if [ "$?" -eq "0" ]; then
     echo -e "All important components have been created successfully \n"
-    echo -e "Default credentials for the user: \n"
+    echo -e "Don't forget to change in config.php DB_USER and DB_PASS as well \n"
+    echo -e "Default credentials for the user authentication: \n"
     echo -e "nimda:nimda \nHappy Hunting"
   else
     echo "Error: Something happend :("
