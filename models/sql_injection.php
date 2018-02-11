@@ -7,30 +7,30 @@ class sqlInjectionModel extends Model{
 	public function vulnerabilitie($level = null){
 		switch ($level) {
 			case 'easy':
-				$servername = "localhost";
-				$username = "username";
-				$password = "password";
+				if(isset($_POST['search'])):
+					// Create connection
+					$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
-				// Create connection
-				$conn = new mysqli(DB_HOST, DB_USER, DB_PASS);
+					// Check connection
+					if ($conn->connect_error):
+					    Messages::setMsg("Connection failed: " . $conn->connect_error, 'error');
+						return ['level'  => (new Progress($level))->level()];
+					endif;
+					$output = array();
+					$search = isset($_POST['search'])?$_POST['search']:"";
+					
+					$sql = mysqli_query($conn, "SELECT * FROM users WHERE first_name ='$search';");
 
-				// Check connection
-				if ($conn->connect_error) {
-				    Messages::setMsg("Connection failed: " . $conn->connect_error, 'error');
-					return ['level'  => (new Progress($level))->level()];
-				}
+				    while($row = mysqli_fetch_assoc( $sql )) {
+				        array_push($output, $row);
+				    }
 
-				if ($conn->query("CREATE DATABASE IF NOT EXISTS BLAAA") === TRUE) {
-				    printf("Table myCity successfully created.\n");
-				}
-
-				echo "Connected successfully";
-
-				return array(
-					'output' => '',
-					'level'  => (new Progress($level))->level()
-					);
-				
+					return array(
+							'output' => $output,
+							'level'  => (new Progress($level))->level()
+						);
+					mysqli_close($conn);
+				endif;	
 				break;
 			
 			default:

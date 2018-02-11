@@ -17,13 +17,23 @@
         <h2>Custom search field</h2>
             <div id="custom-search-input">
                 <div class="input-group col-md-12">
-                    <input type="text" class="form-control input-lg" placeholder="Search here..." />
-                    <span class="input-group-btn">
-                        <button class="btn btn-info btn-lg" type="button">
-                            <i class="glyphicon glyphicon-search"></i>
-                        </button>
-                    </span>
+                  <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="POST">
+                      <input type="text" name="search" class="form-control input-lg" placeholder="Search here..." autofocus="" />
+                      <!-- <span class="input-group-btn"> -->
+                          <!-- <button class="btn btn-info btn-lg"> -->
+                              <!-- <i class="glyphicon glyphicon-search"></i> -->
+                          <!-- </button> -->
+                      <!-- </span> -->
+                  </form>
                 </div>
             </div>
         </div>
   </div>
+
+
+  <?php
+    foreach ($viewmodel['output'] as $row) {
+      echo $row['first_name'].'<br>';
+    }
+
+  ?>
