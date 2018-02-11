@@ -1,5 +1,5 @@
 <?php
-class pathTraversalModel extends Bmodel{
+class pathTraversalModel extends Model{
 
 	/*
 		Local File Inclusion #1 easy level

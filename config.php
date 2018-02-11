@@ -42,6 +42,9 @@
 	define("URL_BRUTE_FORCE_IMPOSSIBLE_1",      ROOT_URL."index.php?controller=brute_force&action=vulnerabilitie&level=impossible");
 
 
+	define("URL_SQL_INJECTION_EASY_1",      ROOT_URL."index.php?controller=sql_injection&action=vulnerabilitie&level=easy");
+
+
 
 
 

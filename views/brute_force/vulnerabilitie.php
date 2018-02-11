@@ -8,7 +8,7 @@
       $show_csrf = true;
   endswitch;
 ?>
-<script type="text/javascript">$("#BRUTE_FORCE_EASY").addClass("active");</script>
+<script type="text/javascript">$("#BRUTE_FORCE").addClass("active");</script>
 <link rel="stylesheet" href="<?php echo ROOT_URL.'assets/css/brute_force/style.css'; ?>">
 
 <h1>Difficulty Level: <?php echo $viewmodel['level']['styled_name']; ?></h1>

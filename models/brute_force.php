@@ -1,5 +1,5 @@
 <?php
-class bruteForceModel extends Bmodel{
+class bruteForceModel extends Model{
 
 	/*
 		Brute Force #1 easy level

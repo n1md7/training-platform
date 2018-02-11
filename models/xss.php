@@ -1,5 +1,5 @@
 <?php
-class xssModel extends Bmodel{
+class xssModel extends Model{
 	/*
 		xss stored#1 easy level
 		function is vulnerable

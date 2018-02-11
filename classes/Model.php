@@ -4,7 +4,15 @@ abstract class Model{
 	protected $stmt;
 
 	public function __construct(){
-		$this->dbh = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8", DB_USER, DB_PASS);
+		try{
+			$this->dbh = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8", DB_USER, DB_PASS);
+		}
+		catch(PDOException $e){
+		    die($this->dbh."<br>".
+		    	$e->getMessage()."<br><br>".
+		    	"[<b style=\"color:green;\">Info</b>] Hey dude, if it's first time you see this message please click <a href=\"".ROOT_URL.
+		    	"install.php\">here</a> to install awesome application!");
+		}
 	}
 
 	public function query($query){

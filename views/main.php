@@ -55,6 +55,15 @@
               <!-- <li role="separator" class="divider"></li> -->
             </ul>
           </li>
+
+          <li class="dropdown" id="SQL_INJECTION">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SQLi <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li class=""><a class="link" href="<?php echo URL_SQL_INJECTION_EASY_1; ?>">SQLi#1 - easy</a></li>
+              <!-- <li role="separator" class="divider"></li> -->
+            </ul>
+          </li>
+          
 <!-- 
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SQLi <span class="caret"></span></a>
@@ -86,8 +95,8 @@
             </ul>
           </li> -->
 
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Brute-force <span class="caret"></span></a>
+          <li class="dropdown" id="BRUTE_FORCE">
+            <a href="#"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Brute-force <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a class="link" href="<?php echo URL_BRUTE_FORCE_EASY_1; ?>">Brute-force#1 - easy</a></li>
               <li><a class="link" href="<?php echo URL_BRUTE_FORCE_MEDIUM_1; ?>">Brute-force#1 - medium</a></li>
