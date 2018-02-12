@@ -63,15 +63,15 @@ if(isset($_POST['install'])):
 	    $path_to_file = 'config.php';
 		$file_contents = file_get_contents($path_to_file);
 		$file_contents = str_replace('define("DB_USER",',"define(\"DB_USER\",\"".$_POST['DB_username']."\");//",$file_contents);
-		file_put_contents($path_to_file,$file_contents);
-
-		$file_contents = file_get_contents($path_to_file);
 		$file_contents = str_replace('define("DB_PASS",',"define(\"DB_PASS\",\"".$_POST['DB_password']."\");//",$file_contents);
-		file_put_contents($path_to_file,$file_contents);
-
-	    echo "[<b style=\"color:rgba(0, 72, 255, 0.9);\">Info</b>] config.php file modified successfully<br>";
-		echo "[<b style=\"color:rgba(0, 72, 255, 0.9);\">Info</b>] Go to <a href=\"./\">Main</a>";
-
+		if( file_put_contents($path_to_file,$file_contents) === false){
+			echo "[<b style=\"color:red;\">Error</b>] Ups! We don't have a permission to change content of config.php file!<br>" ;
+		    echo "[<b style=\"color:rgba(0, 72, 255, 0.9);\">Info</b>] Just final step remains. Please open <b>config.php</b> file and change <b>DB_USER, DB_PASS </b>manually with [ <b>{$_POST['DB_username']}</b>:<b>{$_POST['DB_password']}</b> ]!<br><br>";
+		    echo "<img src='./assets/img/conf.png'>";
+		}else{
+		    echo "[<b style=\"color:rgba(0, 72, 255, 0.9);\">Info</b>] config.php file modified successfully<br>";
+			echo "[<b style=\"color:rgba(0, 72, 255, 0.9);\">Info</b>] Go to <a href=\"./\">Main</a>";
+		}
 
 	}
 	catch(PDOException $e){
@@ -87,12 +87,12 @@ endif;
 
 
 <form method="post">
-	<p>[<b style="color:rgba(0, 72, 255, 0.9);">Info</b>] Please insert your DataBase credentials! Default user is root and it suppose to valid everywhere but you are free to provide any.
+	<p>[<b style="color:rgba(0, 72, 255, 0.9);">Info</b>] Please insert your DataBase credentials! Default user is <b>root</b> and it suppose to valid everywhere but you are free to provide any.
 	<br>
 	[<b style="color:rgba(255, 72, 0, 0.9);">NB</b>] You should be able to authorize using those username and password in your mysql database!
 	</p>
 
 	<input type="text" value="root" placeholder="DB_username" name="DB_username" required="">
-	<input type="text" placeholder="DB_password" name="DB_password" required="" autofocus="" autocomplete="off">
+	<input type="text" placeholder="DB_password" name="DB_password" autofocus="" autocomplete="off">
 	<input type="submit" value="Install" name="install" style="color: blue;cursor: pointer;">
 </form>
