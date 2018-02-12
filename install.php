@@ -65,8 +65,9 @@ if(isset($_POST['install'])):
 		$file_contents = str_replace('define("DB_USER",',"define(\"DB_USER\",\"".$_POST['DB_username']."\");//",$file_contents);
 		$file_contents = str_replace('define("DB_PASS",',"define(\"DB_PASS\",\"".$_POST['DB_password']."\");//",$file_contents);
 		if( file_put_contents($path_to_file,$file_contents) === false){
+			$dir = __DIR__;
 			echo "[<b style=\"color:red;\">Error</b>] Ups! We don't have a permission to change content of config.php file!<br>" ;
-		    echo "[<b style=\"color:rgba(0, 72, 255, 0.9);\">Info</b>] Just final step remains. Please open <b>config.php</b> file and change <b>DB_USER, DB_PASS </b>manually with [ <b>{$_POST['DB_username']}</b>:<b>{$_POST['DB_password']}</b> ]!<br><br>";
+		    echo "[<b style=\"color:rgba(0, 72, 255, 0.9);\">Info</b>] Just final step remains. Please open <b>{$dir}/config.php</b> file and change <b>DB_USER, DB_PASS </b>manually with [ <b>{$_POST['DB_username']}</b>:<b>{$_POST['DB_password']}</b> ]!<br><br>";
 		    echo "<img src='./assets/img/conf.png'>";
 		}else{
 		    echo "[<b style=\"color:rgba(0, 72, 255, 0.9);\">Info</b>] config.php file modified successfully<br>";
