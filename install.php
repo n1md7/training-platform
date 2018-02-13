@@ -1,8 +1,18 @@
 <?php
+require('config.php');
+$db = DB_HOST;
+$dbn = DB_NAME;
+try {
+  
+    $dbh = new PDO("mysql:host=$db;dbname=$dbn", DB_USER, DB_PASS);
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);   
+    echo '[<b style="color:rgba(0, 72, 255, 0.9);">Info</b>] Dude, you have already done this setup! Please go to <a href="./">main</a> page<br/>';
+}catch(PDOException $e){}
 
 if(isset($_POST['install'])):
 	try {
-	    $conn = new PDO('mysql:host=localhost', $_POST['DB_username'], $_POST['DB_password']);
+    	$conn = new PDO("mysql:host=$db;",  $_POST['DB_username'], $_POST['DB_password']);
+
 	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	    $conn->exec("CREATE DATABASE IF NOT EXISTS training_platform");
 	    $conn->exec("use training_platform");
@@ -68,7 +78,7 @@ if(isset($_POST['install'])):
 			$dir = __DIR__;
 			echo "[<b style=\"color:red;\">Error</b>] Ups! We don't have a permission to change content of config.php file!<br>" ;
 		    echo "[<b style=\"color:rgba(0, 72, 255, 0.9);\">Info</b>] Just final step remains. Please open <b>{$dir}/config.php</b> file and change <b>DB_USER, DB_PASS </b>manually with [ <b>{$_POST['DB_username']}</b>:<b>{$_POST['DB_password']}</b> ]!<br><br>";
-		    echo "<img src='./assets/img/conf.png'>";
+		    echo "<img src='./assets/img/conf.png'><br>";
 		}else{
 		    echo "[<b style=\"color:rgba(0, 72, 255, 0.9);\">Info</b>] config.php file modified successfully<br>";
 			echo "[<b style=\"color:rgba(0, 72, 255, 0.9);\">Info</b>] Go to <a href=\"./\">Main</a>";
@@ -76,23 +86,20 @@ if(isset($_POST['install'])):
 
 	}
 	catch(PDOException $e){
-	    echo "[<b style=\"color:red;\">Error</b>] ".$sql . $e->getMessage();
+	    echo "[<b style=\"color:red;\">Error</b>] ".$sql . $e->getMessage() . '<br>';
 	}
-
-endif;
-
-
-
-
+else:
 ?>
-
-
-<form method="post">
 	<p>[<b style="color:rgba(0, 72, 255, 0.9);">Info</b>] Please insert your DataBase credentials! Default user is <b>root</b> and it suppose to valid everywhere but you are free to provide any.
 	<br>
 	[<b style="color:rgba(255, 72, 0, 0.9);">NB</b>] You should be able to authorize using those username and password in your mysql database!
 	</p>
+<?php 
+endif;
+?>
 
+<br>
+<form method="post">
 	<input type="text" value="root" placeholder="DB_username" name="DB_username" required="">
 	<input type="text" placeholder="DB_password" name="DB_password" autofocus="" autocomplete="off">
 	<input type="submit" value="Install" name="install" style="color: blue;cursor: pointer;">
