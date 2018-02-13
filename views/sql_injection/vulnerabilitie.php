@@ -18,22 +18,39 @@
             <div id="custom-search-input">
                 <div class="input-group col-md-12">
                   <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="POST">
-                      <input type="text" name="search" class="form-control input-lg" placeholder="Search here..." autofocus="" />
-                      <!-- <span class="input-group-btn"> -->
-                          <!-- <button class="btn btn-info btn-lg"> -->
-                              <!-- <i class="glyphicon glyphicon-search"></i> -->
-                          <!-- </button> -->
-                      <!-- </span> -->
+                      <input type="text" name="search" value="<?php echo $viewmodel['post']; ?>" autocomplete="off" class="form-control input-lg" placeholder="Search here..." autofocus="" spellcheck="false" />
                   </form>
                 </div>
             </div>
         </div>
   </div>
+  <br>
+<?php
+  if(sizeof($viewmodel['output']) != 0): ?>
+    <div class="row">
+      <div class="col-md-1">ID</div>
+      <div class="col-md-2">First Name</div>
+      <div class="col-md-2">Last Name</div>
+      <div class="col-md-3">E-mail</div>
+      <div class="col-md-2">Gender</div>
+      <div class="col-md-2">IP</div>
+    </div>
+    <?php 
+    foreach ($viewmodel['output'] as $row):
+      vprintf("
+        <div class=\"row\">
+          <div class=\"col-md-1\">%s</div>
+          <div class=\"col-md-2\">%s</div>
+          <div class=\"col-md-2\">%s</div>
+          <div class=\"col-md-3\">%s</div>
+          <div class=\"col-md-2\">%s</div>
+          <div class=\"col-md-2\">%s</div>
+        </div>
+        ", [$row['id'], $row['first_name'], $row['last_name'], $row['email'], $row['gender'], $row['ip_address']]);
+    endforeach;
+  else:
+    if(isset($_POST['search']))
+      echo "Dude, there is no any output for you!";
+  endif;
 
-
-  <?php
-    foreach ($viewmodel['output'] as $row) {
-      echo $row['first_name'].'<br>';
-    }
-
-  ?>
+?>

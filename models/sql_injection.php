@@ -19,7 +19,7 @@ class sqlInjectionModel extends Model{
 					$output = array();
 					$search = isset($_POST['search'])?$_POST['search']:"";
 					
-					$sql = mysqli_query($conn, "SELECT * FROM users WHERE first_name ='$search';");
+					$sql = mysqli_query($conn, "SELECT * FROM users WHERE first_name like '%$search%' LIMIT 10");
 
 				    while($row = mysqli_fetch_assoc( $sql )) {
 				        array_push($output, $row);
@@ -27,6 +27,7 @@ class sqlInjectionModel extends Model{
 
 					return array(
 							'output' => $output,
+							'post'   => $_POST['search'],
 							'level'  => (new Progress($level))->level()
 						);
 					mysqli_close($conn);

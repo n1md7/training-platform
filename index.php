@@ -1,7 +1,7 @@
 <?php
-// Start Session
 ob_start();
 // header( "Set-Cookie: name=value; httpOnly" );
+// Start Session
 session_start();
 
 
@@ -11,34 +11,28 @@ require('config.php');
 error_reporting(E_ALL);
 ini_set('display_errors', DEBUG ? 'On' : 'Off');
 
+$classes = array('functions', 'progress', 'Messages', 'Bootstrap', 'Controller', 'Model');
+foreach ($classes as $file):
+	require("classes/$file.php");
+endforeach;
 
-require('classes/functions.php');
+$files = array(
+				'users',
+				'home',
+				'xss',
+				'path_traversal',
+				'brute_force',
+				'sql_injection'
+			);
 
-require('classes/progress.php');
-require('classes/Messages.php');
-require('classes/Bootstrap.php');
-require('classes/Controller.php');
-require('classes/Model.php');
-
-require('controllers/users.php');
-require('controllers/home.php');
-
-require('controllers/xss.php');
-require('controllers/path_traversal.php');
-require('controllers/brute_force.php');
-require('controllers/sql_injection.php');
+foreach ($files as $file):
+	require("controllers/$file.php");	
+	require("models/$file.php");	
+endforeach;
 
 
-require('models/user.php');
-require('models/home.php');
 
-require('models/xss.php');
-require('models/path_traversal.php');
-require('models/brute_force.php');
-require('models/sql_injection.php');
-
-$bootstrap = new Bootstrap($_GET);
-$controller = $bootstrap->createController();
+$controller = (new Bootstrap($_GET))->createController();
 if($controller):
 	$controller->executeAction();
 endif;
