@@ -8,10 +8,11 @@
 	define("DB_NAME", "training_platform");
 	define("DB_USER_TABLE", "trp_users");
 
-	define("ROOT_PATH",     '/training-platform/');
-	define("ROOT_URL",      $_SERVER['REQUEST_SCHEME']."://".$_SERVER['HTTP_HOST'].ROOT_PATH);
+	define("ROOT_PATH", "/".basename(dirname(__FILE__))."/");
 
-	define("__IMG__",     	"./assets/img/");
+	define("ROOT_URL", $_SERVER['REQUEST_SCHEME']."://".$_SERVER['HTTP_HOST'].ROOT_PATH);
+
+	define("__IMG__", "./assets/img/");
 
 	date_default_timezone_set("Asia/Tbilisi");
 
