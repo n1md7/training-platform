@@ -1,10 +1,10 @@
 <?php
 
-	define('DEBUG', false);
+	define('DEBUG', true);
 
 	define("DB_HOST", "localhost");
 	define("DB_USER", "root");  
-	define("DB_PASS", "11235813s"); 
+	define("DB_PASS", "11235813"); 
 	define("DB_NAME", "training_platform");
 	define("DB_USER_TABLE", "trp_users");
 
