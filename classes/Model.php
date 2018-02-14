@@ -8,10 +8,15 @@ abstract class Model{
 			$this->dbh = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8", DB_USER, DB_PASS);
 		}
 		catch(PDOException $e){
-		    die($this->dbh."<br>".
-		    	"[<b style=\"color:red;\">Error</b>] ".$e->getMessage()."<br><br>".
-		    	"[<b style=\"color:blue;\">Info</b>] Hey dude, if it's first time you see this message please click <a href=\"".ROOT_URL.
-		    	"install.php\">here</a> to install awesome application!");
+			if(!DEBUG){
+				header("location: " . ROOT_URL . "install.php");
+				die('Hacking attempt! :)');
+			}else{
+			    die($this->dbh."<br>".
+			    	"[<b style=\"color:red;\">Error</b>] ".$e->getMessage()."<br><br>".
+			    	"[<b style=\"color:blue;\">Info</b>] Hey dude, if it's first time you see this message please click <a href=\"".ROOT_URL.
+			    	"install.php\">here</a> to install awesome application!");
+			}
 		}
 	}
 
