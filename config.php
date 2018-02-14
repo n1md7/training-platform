@@ -1,6 +1,6 @@
 <?php
 
-	define('DEBUG', true);
+	define('DEBUG', false);
 
 	define("DB_HOST", "localhost");
 	define("DB_USER", "root");  

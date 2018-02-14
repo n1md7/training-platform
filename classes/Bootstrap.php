@@ -26,15 +26,15 @@ class Bootstrap{
 				if(method_exists($this->controller, $this->action)):
 					return new $this->controller($this->action, $this->request);
 				else:
-					DEBUG ? print('Method doesn\'t exist!'):header('HTTP/1.1 404 Not Found');
+					DEBUG ? print('Method doesn\'t exist!'):header("location: " . ROOT_URL );
 					return;
 				endif;
 			else:
-				DEBUG ? print('Base controller not found!'):header('HTTP/1.1 404 Not Found');
+				DEBUG ? print('Base controller not found!'):header("location: " . ROOT_URL );
 				return;
 			endif;
 		else:
-			DEBUG ? print('Controller class doesn\'t exist!'):header('HTTP/1.1 404 Not Found');
+			DEBUG ? print('Controller class doesn\'t exist!'):header("location: " . ROOT_URL );
 			return;
 		endif;
 	}
