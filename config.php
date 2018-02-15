@@ -43,6 +43,8 @@
 
 
 	define("URL_SQL_INJECTION_EASY_1",      ROOT_URL."index.php?controller=sql_injection&action=vulnerabilitie&level=easy");
+	define("URL_SQL_INJECTION_MEDIUM_1",    ROOT_URL."index.php?controller=sql_injection&action=vulnerabilitie&level=medium");
+	define("URL_SQL_INJECTION_IMPOSSIBLE_1",    ROOT_URL."index.php?controller=sql_injection&action=vulnerabilitie&level=impossible");
 
 
 

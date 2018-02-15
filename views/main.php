@@ -60,6 +60,8 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SQLi <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li class=""><a class="link" href="<?php echo URL_SQL_INJECTION_EASY_1; ?>">SQLi#1 - easy</a></li>
+              <li class=""><a class="link" href="<?php echo URL_SQL_INJECTION_MEDIUM_1; ?>">SQLi#1 - medium</a></li>
+              <li class=""><a class="link" href="<?php echo URL_SQL_INJECTION_IMPOSSIBLE_1; ?>">SQLi#1 - impossible</a></li>
               <!-- <li role="separator" class="divider"></li> -->
             </ul>
           </li>

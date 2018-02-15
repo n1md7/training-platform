@@ -14,7 +14,7 @@
 
   <div class="row">
         <div class="col-md-12">
-        <h2>Custom search field</h2>
+        <h2>Customer search form</h2>
             <div id="custom-search-input">
                 <div class="input-group col-md-12">
                   <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="POST">
@@ -26,7 +26,7 @@
   </div>
   <br>
 <?php
-  if(sizeof($viewmodel['output']) != 0): ?>
+  if(isset($viewmodel['output']) && sizeof($viewmodel['output']) != 0): ?>
     <div class="row">
       <div class="col-md-1">ID</div>
       <div class="col-md-2">First Name</div>
