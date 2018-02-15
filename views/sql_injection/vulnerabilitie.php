@@ -46,7 +46,14 @@
           <div class=\"col-md-2\">%s</div>
           <div class=\"col-md-2\">%s</div>
         </div>
-        ", [$row['id'], $row['first_name'], $row['last_name'], $row['email'], $row['gender'], $row['ip_address']]);
+        ", [
+              $row['id'], 
+              $row['first_name'], 
+              $row['last_name'], 
+              $row['email'], 
+              $row['gender'], 
+              $row['ip_address']
+            ]);
     endforeach;
   else:
     if(isset($_POST['search']))
