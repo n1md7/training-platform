@@ -7,7 +7,7 @@ class UserModel extends Model{
 	public function signin(){
 		/* sanitization of POST input */
 		$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
+		
 		/* Checking whether parameters are passed*/
 		if(isset($post['signin'])):
 

@@ -102,7 +102,11 @@ class pathTraversalModel extends Model{
 
 
 		$file_contents = array();
-		exec("ls ./LFI_Files;", $files);
+		if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+			exec("dir ./LFI_Files;", $files);
+		} else {
+			exec("ls ./LFI_Files;", $files);
+		}
 		foreach ($files as $key => $value):
 			array_push(
 				$file_contents, 

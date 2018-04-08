@@ -1,12 +1,15 @@
 <?php
 
-	define('DEBUG', true);
+	define('DEBUG', false);
 
 	define("DB_HOST", "localhost");
-	define("DB_USER", "nimda");  
-	define("DB_PASS", "nimdapass"); 
+	define("DB_USER", "root");  
+	define("DB_PASS", "password"); 
 	define("DB_NAME", "training_platform");
+
 	define("DB_USER_TABLE", "trp_users");
+	define("DB_SQLi_TABLE", "users");
+	define("DB_XSSs_TABLE", "xss_stored");
 
 	define("ROOT_PATH", "/".basename(dirname(__FILE__))."/");
 
@@ -42,8 +45,8 @@
 	define("URL_BRUTE_FORCE_IMPOSSIBLE_1",      ROOT_URL."index.php?controller=brute_force&action=vulnerabilitie&level=impossible");
 
 
-	define("URL_SQL_INJECTION_EASY_1",      ROOT_URL."index.php?controller=sql_injection&action=vulnerabilitie&level=easy");
-	define("URL_SQL_INJECTION_MEDIUM_1",    ROOT_URL."index.php?controller=sql_injection&action=vulnerabilitie&level=medium");
+	define("URL_SQL_INJECTION_EASY_1",      	ROOT_URL."index.php?controller=sql_injection&action=vulnerabilitie&level=easy");
+	define("URL_SQL_INJECTION_MEDIUM_1",    	ROOT_URL."index.php?controller=sql_injection&action=vulnerabilitie&level=medium");
 	define("URL_SQL_INJECTION_IMPOSSIBLE_1",    ROOT_URL."index.php?controller=sql_injection&action=vulnerabilitie&level=impossible");
 
 

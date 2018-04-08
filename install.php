@@ -2,6 +2,9 @@
 require('config.php');
 $db = DB_HOST;
 $dbn = DB_NAME;
+$dbut = DB_USER_TABLE;
+$dbsqli = DB_SQLi_TABLE;
+$dbxsss = DB_XSSs_TABLE;
 try {
     $dbh = new PDO("mysql:host=$db;dbname=$dbn", DB_USER, DB_PASS);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);   
@@ -13,14 +16,14 @@ if(isset($_POST['install'])):
     	$conn = new PDO("mysql:host=$db;",  $_POST['DB_username'], $_POST['DB_password']);
 
 	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	    $conn->exec("CREATE DATABASE IF NOT EXISTS training_platform");
-	    $conn->exec("use training_platform");
+	    $conn->exec("CREATE DATABASE IF NOT EXISTS $dbn");
+	    $conn->exec("use $dbn");
 	    $conn->exec("
 					
 					SET SQL_MODE = 'NO_AUTO_VALUE_ON_ZERO';
 					SET time_zone = '+02:00';
 
-					CREATE TABLE IF NOT EXISTS trp_users (  
+					CREATE TABLE IF NOT EXISTS $dbut (  
 					  user_id int(5) NOT NULL,
 					  email varchar(40) NOT NULL,
 					  password varchar(40) NOT NULL,
@@ -29,7 +32,7 @@ if(isset($_POST['install'])):
 					  username varchar(40) NOT NULL
 					) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-					CREATE TABLE IF NOT EXISTS xss_stored (
+					CREATE TABLE IF NOT EXISTS $dbxsss (
 					  id int(4) NOT NULL,
 					  fname varchar(10000) NOT NULL,
 					  lname varchar(200) NOT NULL,
@@ -37,7 +40,7 @@ if(isset($_POST['install'])):
 					  level varchar(30) NOT NULL DEFAULT 'easy'
 					) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-					CREATE TABLE IF NOT EXISTS users (
+					CREATE TABLE IF NOT EXISTS $dbsqli (
 					  id int(7) NOT NULL,
 					  first_name varchar(33) NOT NULL,
 					  last_name varchar(33) NOT NULL,
@@ -46,28 +49,28 @@ if(isset($_POST['install'])):
 					  gender varchar(6) NOT NULL
 					) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-					ALTER TABLE trp_users
+					ALTER TABLE $dbut
 					  ADD PRIMARY KEY (user_id);
 
-					ALTER TABLE trp_users
+					ALTER TABLE $dbut
 					  MODIFY user_id int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
-					ALTER TABLE xss_stored
+					ALTER TABLE $dbxsss
 					  ADD PRIMARY KEY (id);
 					 
-					ALTER TABLE xss_stored
+					ALTER TABLE $dbxsss
 					  MODIFY id int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 					 
-					ALTER TABLE users
+					ALTER TABLE $dbsqli
 					  ADD PRIMARY KEY (id);
 
-					ALTER TABLE users
+					ALTER TABLE $dbsqli
 					  MODIFY id int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
-					INSERT INTO trp_users (user_id, email, password, avatar, reg_date_time, username) VALUES
+					INSERT INTO $dbut (user_id, email, password, avatar, reg_date_time, username) VALUES
 					(1, 'nimda@nimda.com', 'f99c91b8541a9a56909ed9b045de4ddeb1da99c1', 'avatar_1.jpg', '2018-01-10 22:36:27', 'nimda');
 					 
-					INSERT INTO xss_stored (id, fname, lname, age, level) VALUES
+					INSERT INTO $dbxsss (id, fname, lname, age, level) VALUES
 					(1, 'Fianna', 'Maymond', 28, 'easy'),
 					(2, 'Addy', 'Backshill', 13, 'easy'),
 					(3, 'Burke', 'Defew', 16, 'easy'),
@@ -79,7 +82,7 @@ if(isset($_POST['install'])):
 					(9, 'Keith', 'Beet', 54, 'hard'),
 					(10, 'Alison', 'Mayou', 61, 'hard');
 
-					INSERT INTO users (id, first_name, last_name, email, ip_address, gender) VALUES
+					INSERT INTO $dbsqli (id, first_name, last_name, email, ip_address, gender) VALUES
 					(1, 'Lynett', 'Borthe', 'lborthe0@timesonline.co.uk', '28.55.217.237', 'Female'),
 					(2, 'Filmore', 'Shillito', 'fshillito1@netlog.com', '69.117.211.116', 'Male'),
 					(3, 'Redd', 'Rudolfer', 'rrudolfer2@privacy.gov.au', '20.33.239.3', 'Male'),

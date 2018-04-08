@@ -5,6 +5,7 @@ class sqlInjectionModel extends Model{
 		function is vulnerable
 	*/
 	public function vulnerabilitie($level = null){
+		$dbtbl = DB_SQLi_TABLE;
 		switch ($level) {
 			case 'medium':
 				if(isset($_POST['search'])):
@@ -18,7 +19,7 @@ class sqlInjectionModel extends Model{
 					/* trim spaces */
 					$search = str_replace(' ','', $_POST['search']);
 					
-					$sql = mysqli_query($conn, "SELECT * FROM users WHERE first_name like '%$search%' LIMIT 10");
+					$sql = mysqli_query($conn, "SELECT * FROM $dbtbl WHERE first_name like '%$search%' LIMIT 10");
 
 				    while($row = mysqli_fetch_assoc( $sql )) {
 				        array_push($output, $row);
@@ -45,7 +46,7 @@ class sqlInjectionModel extends Model{
 						$dbn = DB_NAME;
 		    			$conn = new PDO("mysql:host=$db;dbname=$dbn;charset=utf8",  DB_USER, DB_PASS);
 						
-						$stmt = $conn->prepare("SELECT * FROM users WHERE first_name like :search LIMIT 10");
+						$stmt = $conn->prepare("SELECT * FROM $dbtbl WHERE first_name like :search LIMIT 10");
 						$stmt->execute(array(':search' => "%".$_POST['search']."%"));
 						
 						$output = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -73,6 +74,7 @@ class sqlInjectionModel extends Model{
 				if(isset($_POST['search'])):
 					// Create connection
 					$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+					$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
 					// Check connection
 					if ($conn->connect_error):
@@ -80,9 +82,9 @@ class sqlInjectionModel extends Model{
 						return ['level'  => (new Progress($level))->level()];
 					endif;
 					$output = array();
-					$search = $_POST['search'];
+					$search = $post['search'];
 					
-					$sql = mysqli_query($conn, "SELECT * FROM users WHERE first_name like '%$search%' LIMIT 10");
+					$sql = mysqli_query($conn, "SELECT * FROM $dbtbl WHERE first_name like '%$search%' LIMIT 10");
 
 				    while($row = mysqli_fetch_assoc( $sql )) {
 				        array_push($output, $row);
@@ -90,7 +92,7 @@ class sqlInjectionModel extends Model{
 
 					return array(
 							'output' => $output,
-							'post'   => $_POST['search'],
+							'post'   => $post['search'],
 							'level'  => (new Progress($level))->level()
 						);
 					mysqli_close($conn);
