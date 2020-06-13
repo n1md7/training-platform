@@ -11,7 +11,7 @@
 	define("DB_SQLi_TABLE", "users");
 	define("DB_XSSs_TABLE", "xss_stored");
 
-	define("ROOT_PATH", "/".basename(dirname(__FILE__))."/");
+	define("ROOT_PATH", "/");
 
 	define("ROOT_URL", $_SERVER['REQUEST_SCHEME']."://".$_SERVER['HTTP_HOST'].ROOT_PATH);
 
