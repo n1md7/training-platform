@@ -7,7 +7,6 @@ else:
 endif;
 
 session_start();
-
 require('config.php');
 
 error_reporting(E_ALL);
