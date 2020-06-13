@@ -1,5 +1,10 @@
 # Training-platform for web application security
-
+# Docker commands
+Cd to the project folder and run these commands
+```
+docker build --tag trp:1.0 . 
+docker run -it --name trpc --rm -p 80:80 --mount type=bind,source=$(pwd),destination=/var/www/html trp:1.0
+```
 ## Requirements
 - Apache webserver
 - Mysql database
