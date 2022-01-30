@@ -2,10 +2,10 @@
 
 	define('DEBUG', false);
 
-	define("DB_HOST", "localhost");
-	define("DB_USER", "root");  
-	define("DB_PASS", "password"); 
-	define("DB_NAME", "training_platform");
+	define("DB_HOST", "mysql-db");
+	define("DB_USER","user");// "user");  
+	define("DB_PASS","password");// "password"); 
+	define("DB_NAME", "platform");
 
 	define("DB_USER_TABLE", "trp_users");
 	define("DB_SQLi_TABLE", "users");

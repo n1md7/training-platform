@@ -1,0 +1,46 @@
+version: '3.8'
+services:
+  php-apache:
+    container_name: php-apache
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql-db
+    volumes:
+      - .:/var/www/html/
+    ports:
+      - "8000:80"
+    working_dir: /var/www/html
+    networks:
+      - php-net
+  mysql-db:
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_DATABASE: platform
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+    networks:
+      - php-net
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - '8001:80'
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      PMA_HOST: mysql-db
+      PMA_PORT: 3306
+      PMA_PASSWORD: password
+      PMA_USER: user
+    depends_on:
+      - mysql-db
+    networks:
+      - php-net
+networks:
+  php-net:
+    driver: bridge

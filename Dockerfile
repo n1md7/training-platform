@@ -1,17 +1,11 @@
-FROM debian
+FROM php:5.6-apache
 
-RUN apt-get update && apt-get -y install apache2 \
-	curl \
-	default-mysql-server \
-	default-mysql-client \
-	php \
-	php-curl \
-	php-mysql \
-	php-xdebug
+RUN apt update
+RUN docker-php-ext-install mysqli
+RUN docker-php-ext-install pdo pdo_mysql
+RUN docker-php-ext-enable mysqli
+RUN service apache2 restart
+RUN apt-get update && apt-get upgrade -y
 
 
-
-
-EXPOSE 80
-ENTRYPOINT service apache2 start && service mysql start && /bin/bash
-
+EXPOSE 8000
