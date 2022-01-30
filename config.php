@@ -3,8 +3,8 @@
 	define('DEBUG', false);
 
 	define("DB_HOST", "mysql-db");
-	define("DB_USER","user");// "user");  
-	define("DB_PASS","password");// "password"); 
+	define("DB_USER","user");
+	define("DB_PASS","password");
 	define("DB_NAME", "platform");
 
 	define("DB_USER_TABLE", "trp_users");

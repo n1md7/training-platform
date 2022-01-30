@@ -2,9 +2,10 @@ version: '3.8'
 services:
   php-apache:
     container_name: php-apache
-    build:
-      context: .
-      dockerfile: Dockerfile
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+    image: docker.pkg.github.com/n1md7/training-platform/training-platform:latest
     depends_on:
       - mysql-db
     volumes:
