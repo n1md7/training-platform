@@ -7,7 +7,7 @@
 git clone https://github.com/n1md7/training-platform.git
 
 # From the project root directory run
-docker-compose up
+docker compose up -d
 
 # run db migrations
 curl --location --request POST 'http://localhost:8000/install.php' \
